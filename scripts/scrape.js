@@ -5,7 +5,7 @@ const path = require('path');
 
 async function scrapeRealABPData() {
   console.log('Fetching 100% REAL articles and images from news.abplive.com...');
-  
+
   const pagesToScrape = [
     { url: 'https://news.abplive.com/', category: 'INDIA' },
     { url: 'https://news.abplive.com/news/india', category: 'INDIA' },
@@ -56,20 +56,20 @@ async function scrapeRealABPData() {
       $('a').each((i, el) => {
         const title = $(el).attr('title') || $(el).text().trim();
         const href = $(el).attr('href');
-        let img = $(el).find('img').attr('src') || 
-                  $(el).find('img').attr('data-src') || 
-                  $(el).find('img').attr('data-original') ||
-                  $(el).parent().find('img').attr('src') ||
-                  $(el).parent().find('img').attr('data-src') ||
-                  $(el).parent().find('img').attr('data-original');
+        let img = $(el).find('img').attr('src') ||
+          $(el).find('img').attr('data-src') ||
+          $(el).find('img').attr('data-original') ||
+          $(el).parent().find('img').attr('src') ||
+          $(el).parent().find('img').attr('data-src') ||
+          $(el).parent().find('img').attr('data-original');
 
         if (title && href && (href.includes('/news/') || (href.includes('-') && href.endsWith('.html')))) {
           if (title.length > 25 && !allArticles.some(a => a.title === title)) {
             if (img && img.startsWith('//')) img = 'https:' + img;
-            
+
             // Assign real ABP image fallback if missing
-            const finalImg = (img && img.includes('abplive.com') && !img.includes('editor.png')) 
-              ? img 
+            const finalImg = (img && img.includes('abplive.com') && !img.includes('editor.png'))
+              ? img
               : realAbpImages[allArticles.length % Math.max(1, realAbpImages.length)] || 'https://feeds.abplive.com/onecms/images/uploaded-images/2026/03/21/8eb5c1655224a34f1d075e1fb6460bbd1774101971164616_original.png';
 
             const assignedDate = pastDates[allArticles.length % pastDates.length];
@@ -111,7 +111,7 @@ async function scrapeRealABPData() {
     { id: "business", name: "Business", slug: "/business" },
     { id: "tech", name: "Tech & Gadgets", slug: "/technology" },
     { id: "entertainment", name: "Entertainment", slug: "/entertainment" },
-    { id: "sports", name: "Sports & Cricket", slug: "/sports" },
+    { id: "sports", name: "Sports", slug: "/sports" },
     { id: "auto", name: "Auto", slug: "/auto" },
     { id: "lifestyle", name: "Lifestyle & Health", slug: "/lifestyle" },
     { id: "web-stories", name: "Web Stories", slug: "/web-stories" },

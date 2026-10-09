@@ -116,7 +116,7 @@ def main():
         { "id": "business", "name": "Business", "slug": "/business" },
         { "id": "tech", "name": "Tech & Gadgets", "slug": "/technology" },
         { "id": "entertainment", "name": "Entertainment", "slug": "/entertainment" },
-        { "id": "sports", "name": "Sports & Cricket", "slug": "/sports" }
+        { "id": "sports", "name": "Sports", "slug": "/sports" }
     ]
 
     marketTicker = [

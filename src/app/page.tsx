@@ -100,14 +100,14 @@ export default function HomePage() {
 
               {/* 9. SPORTS & ENTERTAINMENT SECTIONS */}
               <NewsGrid
-                title="Sports & Cricket"
+                title="Sports"
                 categorySlug="sports"
                 articles={newsData.sportsNews}
                 variant="grid"
               />
 
               <NewsGrid
-                title="Entertainment & Showbiz"
+                title="Entertainment"
                 categorySlug="entertainment"
                 articles={newsData.entertainmentNews}
                 variant="grid"

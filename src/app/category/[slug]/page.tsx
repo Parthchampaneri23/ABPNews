@@ -101,7 +101,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
  <div className="pt-2 border-t border-gray-100 flex items-center justify-between text-xs">
  <span className="font-semibold text-gray-600 ">{item.author}</span>
  <Link 
- href={`/article/${item.id}`}
+ href={getArticleUrl(item)}
  className="text-red-600 font-bold hover:underline"
  >
  Read &rarr;
