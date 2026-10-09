@@ -5,7 +5,6 @@ import Header from '@/components/Header';
 import LeftSidebar from '@/components/LeftSidebar';
 import LeadHero from '@/components/LeadHero';
 import NewsGrid from '@/components/NewsGrid';
-import LiveBlogWidget from '@/components/LiveBlogWidget';
 import ArchiveFilter from '@/components/ArchiveFilter';
 import VideoSection from '@/components/VideoSection';
 import WebStories from '@/components/WebStories';
@@ -60,12 +59,6 @@ export default function HomePage() {
               <LeadHero 
                 leadStory={newsData.leadStory}
                 trendingNews={newsData.trendingNews}
-              />
-
-              {/* 3. LIVE BLOG TIMELINE & Metrotimes PODCASTS */}
-              <LiveBlogWidget 
-                updates={newsData.liveBlogUpdates}
-                podcasts={newsData.podcasts}
               />
 
               {/* 4. INDIA NEWS SECTION */}

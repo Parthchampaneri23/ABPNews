@@ -196,23 +196,6 @@ export default function ArticleDetailPage({ params }: ArticlePageProps) {
  {/* SIDEBAR (4 Cols) */}
  <aside className="lg:col-span-4 space-y-6">
  
- {/* LIVE TV SIDE CARD */}
- <div className="bg-gradient-to-br from-red-700 to-red-900 text-white p-5 rounded-2xl shadow-lg space-y-3">
- <div className="flex items-center space-x-2">
- <span className="w-2.5 h-2.5 rounded-full bg-white animate-ping" />
- <span className="text-xs font-black uppercase tracking-wider text-amber-300">WATCH Metrotimes TV</span>
- </div>
- <h3 className="text-base font-extrabold leading-snug">
- Stream Live News 24/7 Directly On Any Device
- </h3>
- <button 
- onClick={() => setIsLiveTVOpen(true)}
- className="w-full bg-white text-red-700 hover:bg-gray-100 font-extrabold text-xs py-2.5 rounded-xl uppercase tracking-wider shadow-md transition-colors"
- >
- OPEN LIVE STREAM
- </button>
- </div>
-
  {/* RELATED STORIES */}
  <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 space-y-4">
  <div className="flex items-center justify-between border-b border-gray-100 pb-2">

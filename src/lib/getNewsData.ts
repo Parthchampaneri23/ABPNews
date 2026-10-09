@@ -78,8 +78,8 @@ export interface NewsDataset {
   categories: Category[];
   pastDates: string[];
   leadStory: Article;
-  editorsPicks: Article[];
-  topStories: Article[];
+  editorsPicks?: Article[];
+  topStories?: Article[];
   trendingNews: Article[];
   indiaNews: Article[];
   worldNews: Article[];
