@@ -3,8 +3,8 @@
 import React, { useState, use } from 'react';
 import Link from 'next/link';
 import { 
-  Clock, Share2, Copy, Check, 
-  Bookmark, MessageSquare, ChevronRight, Eye, ThumbsUp, Flame, ArrowLeft, Send
+ Clock, Share2, Copy, Check, 
+ Bookmark, MessageSquare, ChevronRight, Eye, ThumbsUp, Flame, ArrowLeft, Send
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -13,258 +13,258 @@ import SearchModal from '@/components/SearchModal';
 import { getNewsData, getArticleByIdOrSlug } from '@/lib/getNewsData';
 
 interface ArticlePageProps {
-  params: Promise<{ id: string }>;
+ params: Promise<{ id: string }>;
 }
 
 export default function ArticleDetailPage({ params }: ArticlePageProps) {
-  const { id } = use(params);
-  const newsData = getNewsData();
-  const article = getArticleByIdOrSlug(id) || newsData.leadStory;
+ const { id } = use(params);
+ const newsData = getNewsData();
+ const article = getArticleByIdOrSlug(id) || newsData.leadStory;
 
-  const [copied, setCopied] = useState(false);
-  const [fontSize, setFontSize] = useState<'sm' | 'base' | 'lg'>('base');
-  const [likes, setLikes] = useState(48);
-  const [liked, setLiked] = useState(false);
-  const [isLiveTVOpen, setIsLiveTVOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+ const [copied, setCopied] = useState(false);
+ const [fontSize, setFontSize] = useState<'sm' | 'base' | 'lg'>('base');
+ const [likes, setLikes] = useState(48);
+ const [liked, setLiked] = useState(false);
+ const [isLiveTVOpen, setIsLiveTVOpen] = useState(false);
+ const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  const handleCopyLink = () => {
-    if (typeof window !== 'undefined') {
-      navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
+ const handleCopyLink = () => {
+ if (typeof window !== 'undefined') {
+ navigator.clipboard.writeText(window.location.href);
+ setCopied(true);
+ setTimeout(() => setCopied(false), 2000);
+ }
+ };
 
-  const handleLike = () => {
-    if (!liked) {
-      setLikes(likes + 1);
-      setLiked(true);
-    } else {
-      setLikes(likes - 1);
-      setLiked(false);
-    }
-  };
+ const handleLike = () => {
+ if (!liked) {
+ setLikes(likes + 1);
+ setLiked(true);
+ } else {
+ setLikes(likes - 1);
+ setLiked(false);
+ }
+ };
 
-  const relatedArticles = newsData.allArticles
-    .filter(a => a.id !== article.id)
-    .slice(0, 4);
+ const relatedArticles = newsData.allArticles
+ .filter(a => a.id !== article.id)
+ .slice(0, 4);
 
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 flex flex-col font-sans">
-      
-      {/* HEADER */}
-      <Header 
-        categories={newsData.categories}
-        ticker={newsData.ticker}
-        marketTicker={newsData.marketTicker}
-        weatherData={newsData.weatherData}
-        onOpenLiveTV={() => setIsLiveTVOpen(true)}
-        onOpenSearch={() => setIsSearchOpen(true)}
-      />
+ return (
+ <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col font-sans">
+ 
+ {/* HEADER */}
+ <Header 
+ categories={newsData.categories}
+ ticker={newsData.ticker}
+ marketTicker={newsData.marketTicker}
+ weatherData={newsData.weatherData}
+ onOpenLiveTV={() => setIsLiveTVOpen(true)}
+ onOpenSearch={() => setIsSearchOpen(true)}
+ />
 
-      {/* ARTICLE WRAPPER */}
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 w-full">
-        
-        {/* BREADCRUMB */}
-        <div className="flex items-center space-x-2 text-xs font-semibold text-gray-500 pb-4 border-b border-gray-200 dark:border-gray-800">
-          <Link href="/" className="hover:text-red-600">Home</Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <Link href={`/category/${article.category.toLowerCase()}`} className="hover:text-red-600 uppercase">
-            {article.category}
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-gray-900 dark:text-gray-300 truncate max-w-xs">{article.title}</span>
-        </div>
+ {/* ARTICLE WRAPPER */}
+ <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 w-full">
+ 
+ {/* BREADCRUMB */}
+ <div className="flex items-center space-x-2 text-xs font-semibold text-gray-500 pb-4 border-b border-gray-200 ">
+ <Link href="/" className="hover:text-red-600">Home</Link>
+ <ChevronRight className="w-3.5 h-3.5" />
+ <Link href={`/category/${article.category.toLowerCase()}`} className="hover:text-red-600 uppercase">
+ {article.category}
+ </Link>
+ <ChevronRight className="w-3.5 h-3.5" />
+ <span className="text-gray-900 truncate max-w-xs">{article.title}</span>
+ </div>
 
-        {/* CONTENT LAYOUT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6">
-          
-          {/* MAIN ARTICLE BODY (8 Cols) */}
-          <article className="lg:col-span-8 bg-white dark:bg-gray-900 p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 space-y-6">
-            
-            {/* CATEGORY & TITLE */}
-            <div className="space-y-3">
-              <span className="bg-red-600 text-white text-xs font-black px-3 py-1 rounded-md uppercase tracking-wider">
-                {article.category}
-              </span>
+ {/* CONTENT LAYOUT */}
+ <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6">
+ 
+ {/* MAIN ARTICLE BODY (8 Cols) */}
+ <article className="lg:col-span-8 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100 space-y-6">
+ 
+ {/* CATEGORY & TITLE */}
+ <div className="space-y-3">
+ <span className="bg-red-600 text-white text-xs font-black px-3 py-1 rounded-md uppercase tracking-wider">
+ {article.category}
+ </span>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                {article.title}
-              </h1>
+ <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+ {article.title}
+ </h1>
 
-              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-medium leading-relaxed italic border-l-4 border-red-600 pl-4 py-1 bg-red-50/50 dark:bg-red-950/20 rounded-r-lg">
-                {article.summary}
-              </p>
-            </div>
+ <p className="text-base sm:text-lg text-gray-600 font-medium leading-relaxed italic border-l-4 border-red-600 pl-4 py-1 bg-red-50/50 rounded-r-lg">
+ {article.summary}
+ </p>
+ </div>
 
-            {/* AUTHOR & TIMESTAMP BAR */}
-            <div className="flex flex-wrap items-center justify-between border-y border-gray-100 dark:border-gray-800 py-3 gap-3">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-red-600 to-amber-500 flex items-center justify-center text-white font-bold text-sm shadow-md">
-                  ABP
-                </div>
-                <div className="flex flex-col text-xs">
-                  <span className="font-extrabold text-gray-900 dark:text-white">{article.author}</span>
-                  <span className="text-gray-500 flex items-center space-x-1 pt-0.5">
-                    <Clock className="w-3 h-3 text-red-500" />
-                    <span>Updated {article.time} • {article.readTime}</span>
-                  </span>
-                </div>
-              </div>
+ {/* AUTHOR & TIMESTAMP BAR */}
+ <div className="flex flex-wrap items-center justify-between border-y border-gray-100 py-3 gap-3">
+ <div className="flex items-center space-x-3">
+ <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-red-600 to-amber-500 flex items-center justify-center text-white font-bold text-sm shadow-md">
+ Metrotimes
+ </div>
+ <div className="flex flex-col text-xs">
+ <span className="font-extrabold text-gray-900 ">{article.author}</span>
+ <span className="text-gray-500 flex items-center space-x-1 pt-0.5">
+ <Clock className="w-3 h-3 text-red-500" />
+ <span>Updated {article.time} • {article.readTime}</span>
+ </span>
+ </div>
+ </div>
 
-              {/* FONT CONTROLS & SHARE */}
-              <div className="flex items-center space-x-3">
-                <div className="flex items-center space-x-1 bg-gray-100 dark:bg-gray-800 px-2.5 py-1 rounded-lg text-xs font-bold">
-                  <span className="text-gray-500 pr-1">Text:</span>
-                  <button 
-                    onClick={() => setFontSize('sm')} 
-                    className={`px-1.5 py-0.5 rounded ${fontSize === 'sm' ? 'bg-red-600 text-white' : 'text-gray-600 dark:text-gray-300'}`}
-                  >
-                    A-
-                  </button>
-                  <button 
-                    onClick={() => setFontSize('base')} 
-                    className={`px-1.5 py-0.5 rounded ${fontSize === 'base' ? 'bg-red-600 text-white' : 'text-gray-600 dark:text-gray-300'}`}
-                  >
-                    A
-                  </button>
-                  <button 
-                    onClick={() => setFontSize('lg')} 
-                    className={`px-1.5 py-0.5 rounded ${fontSize === 'lg' ? 'bg-red-600 text-white' : 'text-gray-600 dark:text-gray-300'}`}
-                  >
-                    A+
-                  </button>
-                </div>
-              </div>
-            </div>
+ {/* FONT CONTROLS & SHARE */}
+ <div className="flex items-center space-x-3">
+ <div className="flex items-center space-x-1 bg-gray-100 px-2.5 py-1 rounded-lg text-xs font-bold">
+ <span className="text-gray-500 pr-1">Text:</span>
+ <button 
+ onClick={() => setFontSize('sm')} 
+ className={`px-1.5 py-0.5 rounded ${fontSize === 'sm' ? 'bg-red-600 text-white' : 'text-gray-600 '}`}
+ >
+ A-
+ </button>
+ <button 
+ onClick={() => setFontSize('base')} 
+ className={`px-1.5 py-0.5 rounded ${fontSize === 'base' ? 'bg-red-600 text-white' : 'text-gray-600 '}`}
+ >
+ A
+ </button>
+ <button 
+ onClick={() => setFontSize('lg')} 
+ className={`px-1.5 py-0.5 rounded ${fontSize === 'lg' ? 'bg-red-600 text-white' : 'text-gray-600 '}`}
+ >
+ A+
+ </button>
+ </div>
+ </div>
+ </div>
 
-            {/* FEATURED IMAGE */}
-            <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-gray-900 shadow-md">
-              <img 
-                src={article.image} 
-                alt={article.title}
-                className="w-full h-full object-cover"
-              />
-              <span className="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded">
-                Image Source: ABP Live Media Desk
-              </span>
-            </div>
+ {/* FEATURED IMAGE */}
+ <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-gray-900 shadow-md">
+ <img 
+ src={article.image} 
+ alt={article.title}
+ className="w-full h-full object-cover"
+ />
+ <span className="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded">
+ Image Source: Metrotimes Media Desk
+ </span>
+ </div>
 
-            {/* SOCIAL SHARE FLOATING BAR */}
-            <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-800/60 p-3 rounded-xl border border-gray-100 dark:border-gray-800">
-              <span className="text-xs font-extrabold uppercase text-gray-500 tracking-wider">Share Story</span>
-              <div className="flex items-center space-x-2">
-                <button onClick={handleCopyLink} className="p-2 bg-white dark:bg-gray-700 hover:bg-red-50 text-gray-700 dark:text-gray-200 rounded-lg transition-colors border border-gray-200 dark:border-gray-600 text-xs font-semibold flex items-center space-x-1">
-                  {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-gray-500" />}
-                  <span>{copied ? 'Copied!' : 'Copy'}</span>
-                </button>
-                <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}`} target="_blank" rel="noopener noreferrer" className="p-2 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors" title="Share on X (Twitter)">
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </a>
-                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(article.link)}`} target="_blank" rel="noopener noreferrer" className="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors" title="Share on Facebook">
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </a>
-                <button onClick={handleLike} className={`p-2 rounded-lg text-xs font-bold flex items-center space-x-1 transition-colors ${liked ? 'bg-red-600 text-white' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600'}`}>
-                  <ThumbsUp className="w-4 h-4" />
-                  <span>{likes}</span>
-                </button>
-              </div>
-            </div>
+ {/* SOCIAL SHARE FLOATING BAR */}
+ <div className="flex items-center justify-between bg-gray-50 /60 p-3 rounded-xl border border-gray-100 ">
+ <span className="text-xs font-extrabold uppercase text-gray-500 tracking-wider">Share Story</span>
+ <div className="flex items-center space-x-2">
+ <button onClick={handleCopyLink} className="p-2 bg-white hover:bg-red-50 text-gray-700 rounded-lg transition-colors border border-gray-200 text-xs font-semibold flex items-center space-x-1">
+ {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-gray-500" />}
+ <span>{copied ? 'Copied!' : 'Copy'}</span>
+ </button>
+ <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}`} target="_blank" rel="noopener noreferrer" className="p-2 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors" title="Share on X (Twitter)">
+ <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+ </a>
+ <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(article.link)}`} target="_blank" rel="noopener noreferrer" className="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors" title="Share on Facebook">
+ <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+ </a>
+ <button onClick={handleLike} className={`p-2 rounded-lg text-xs font-bold flex items-center space-x-1 transition-colors ${liked ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border border-gray-200 '}`}>
+ <ThumbsUp className="w-4 h-4" />
+ <span>{likes}</span>
+ </button>
+ </div>
+ </div>
 
-            {/* PARAGRAPH CONTENT */}
-            <div className={`space-y-4 text-gray-800 dark:text-gray-200 font-normal leading-relaxed ${
-              fontSize === 'sm' ? 'text-sm' : fontSize === 'lg' ? 'text-lg' : 'text-base'
-            }`}>
-              {article.content.map((paragraph, idx) => (
-                <p key={idx} dangerouslySetInnerHTML={{ __html: paragraph }} />
-              ))}
-            </div>
+ {/* PARAGRAPH CONTENT */}
+ <div className={`space-y-4 text-gray-800 font-normal leading-relaxed ${
+ fontSize === 'sm' ? 'text-sm' : fontSize === 'lg' ? 'text-lg' : 'text-base'
+ }`}>
+ {article.content.map((paragraph, idx) => (
+ <p key={idx} dangerouslySetInnerHTML={{ __html: paragraph }} />
+ ))}
+ </div>
 
-            {/* TAGS */}
-            <div className="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center space-x-2">
-              <span className="text-xs font-bold text-gray-500 uppercase">Tags:</span>
-              {['ABP News', article.category, 'Breaking News', 'Latest Updates'].map((tag) => (
-                <span key={tag} className="text-xs font-medium bg-gray-100 dark:bg-gray-800 hover:bg-red-50 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded-md">
-                  #{tag}
-                </span>
-              ))}
-            </div>
+ {/* TAGS */}
+ <div className="pt-4 border-t border-gray-100 flex items-center space-x-2">
+ <span className="text-xs font-bold text-gray-500 uppercase">Tags:</span>
+ {['Metrotimes', article.category, 'Breaking News', 'Latest Updates'].map((tag) => (
+ <span key={tag} className="text-xs font-medium bg-gray-100 hover:bg-red-50 text-gray-700 px-2.5 py-1 rounded-md">
+ #{tag}
+ </span>
+ ))}
+ </div>
 
-          </article>
+ </article>
 
-          {/* SIDEBAR (4 Cols) */}
-          <aside className="lg:col-span-4 space-y-6">
-            
-            {/* LIVE TV SIDE CARD */}
-            <div className="bg-gradient-to-br from-red-700 to-red-900 text-white p-5 rounded-2xl shadow-lg space-y-3">
-              <div className="flex items-center space-x-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-white animate-ping" />
-                <span className="text-xs font-black uppercase tracking-wider text-amber-300">WATCH ABP LIVE TV</span>
-              </div>
-              <h3 className="text-base font-extrabold leading-snug">
-                Stream Live News 24/7 Directly On Any Device
-              </h3>
-              <button 
-                onClick={() => setIsLiveTVOpen(true)}
-                className="w-full bg-white text-red-700 hover:bg-gray-100 font-extrabold text-xs py-2.5 rounded-xl uppercase tracking-wider shadow-md transition-colors"
-              >
-                OPEN LIVE STREAM
-              </button>
-            </div>
+ {/* SIDEBAR (4 Cols) */}
+ <aside className="lg:col-span-4 space-y-6">
+ 
+ {/* LIVE TV SIDE CARD */}
+ <div className="bg-gradient-to-br from-red-700 to-red-900 text-white p-5 rounded-2xl shadow-lg space-y-3">
+ <div className="flex items-center space-x-2">
+ <span className="w-2.5 h-2.5 rounded-full bg-white animate-ping" />
+ <span className="text-xs font-black uppercase tracking-wider text-amber-300">WATCH Metrotimes TV</span>
+ </div>
+ <h3 className="text-base font-extrabold leading-snug">
+ Stream Live News 24/7 Directly On Any Device
+ </h3>
+ <button 
+ onClick={() => setIsLiveTVOpen(true)}
+ className="w-full bg-white text-red-700 hover:bg-gray-100 font-extrabold text-xs py-2.5 rounded-xl uppercase tracking-wider shadow-md transition-colors"
+ >
+ OPEN LIVE STREAM
+ </button>
+ </div>
 
-            {/* RELATED STORIES */}
-            <div className="bg-white dark:bg-gray-900 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 space-y-4">
-              <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 pb-2">
-                <h3 className="text-sm font-extrabold text-gray-900 dark:text-white uppercase tracking-wider">
-                  Related Stories
-                </h3>
-                <Flame className="w-4 h-4 text-red-600" />
-              </div>
+ {/* RELATED STORIES */}
+ <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 space-y-4">
+ <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+ <h3 className="text-sm font-extrabold text-gray-900 uppercase tracking-wider">
+ Related Stories
+ </h3>
+ <Flame className="w-4 h-4 text-red-600" />
+ </div>
 
-              <div className="space-y-3">
-                {relatedArticles.map((rel) => (
-                  <Link 
-                    key={rel.id} 
-                    href={`/article/${rel.id}`}
-                    className="flex items-start space-x-3 group border-b border-gray-100 dark:border-gray-800 pb-3 last:border-0 last:pb-0"
-                  >
-                    <div className="w-16 h-14 rounded-lg overflow-hidden shrink-0 bg-gray-100">
-                      <img src={rel.image} alt={rel.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase tracking-wide">
-                        {rel.category}
-                      </span>
-                      <h4 className="text-xs font-bold text-gray-900 dark:text-white group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">
-                        {rel.title}
-                      </h4>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
+ <div className="space-y-3">
+ {relatedArticles.map((rel) => (
+ <Link 
+ key={rel.id} 
+ href={`/article/${rel.id}`}
+ className="flex items-start space-x-3 group border-b border-gray-100 pb-3 last:border-0 last:pb-0"
+ >
+ <div className="w-16 h-14 rounded-lg overflow-hidden shrink-0 bg-gray-100">
+ <img src={rel.image} alt={rel.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+ </div>
+ <div className="flex-1 min-w-0">
+ <span className="text-[10px] font-bold text-red-600 uppercase tracking-wide">
+ {rel.category}
+ </span>
+ <h4 className="text-xs font-bold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">
+ {rel.title}
+ </h4>
+ </div>
+ </Link>
+ ))}
+ </div>
+ </div>
 
-          </aside>
+ </aside>
 
-        </div>
+ </div>
 
-      </main>
+ </main>
 
-      {/* FOOTER & MODALS */}
-      <Footer categories={newsData.categories} />
+ {/* FOOTER & MODALS */}
+ <Footer categories={newsData.categories} />
 
-      <LiveTVModal 
-        isOpen={isLiveTVOpen}
-        onClose={() => setIsLiveTVOpen(false)}
-      />
+ <LiveTVModal 
+ isOpen={isLiveTVOpen}
+ onClose={() => setIsLiveTVOpen(false)}
+ />
 
-      <SearchModal 
-        isOpen={isSearchOpen}
-        onClose={() => setIsSearchOpen(false)}
-        articles={newsData.allArticles}
-      />
+ <SearchModal 
+ isOpen={isSearchOpen}
+ onClose={() => setIsSearchOpen(false)}
+ articles={newsData.allArticles}
+ />
 
-    </div>
-  );
+ </div>
+ );
 }

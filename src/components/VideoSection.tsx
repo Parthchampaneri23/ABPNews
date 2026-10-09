@@ -24,7 +24,7 @@ export default function VideoSection({ videos, onPlayVideo }: VideoSectionProps)
             </div>
             <div>
               <h2 className="text-xl sm:text-2xl font-black uppercase tracking-wider text-white">
-                ABP LIVE VIDEOS
+                Metrotimes VIDEOS
               </h2>
               <p className="text-xs text-gray-400">Exclusive Video Reports, Discussions & Ground News</p>
             </div>

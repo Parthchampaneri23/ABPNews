@@ -20,7 +20,7 @@ export default function LiveTVModal({ isOpen, onClose }: LiveTVModalProps) {
           <div className="flex items-center space-x-3">
             <div className="flex items-center space-x-2 bg-red-600 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-              <span>ABP LIVE TV 24x7</span>
+              <span>Metrotimes TV 24x7</span>
             </div>
             <span className="text-xs text-gray-400 font-medium hidden sm:inline">
               Non-Stop Live Coverage & News Broadcast
@@ -39,7 +39,7 @@ export default function LiveTVModal({ isOpen, onClose }: LiveTVModalProps) {
         <div className="relative aspect-[16/9] w-full bg-black">
           <iframe 
             src="https://www.youtube-nocookie.com/embed/live_stream?channel=UC9k-yiEpRHMNVOnOi_aQK8w&autoplay=1&mute=0" 
-            title="ABP News Live Broadcast Stream"
+            title="Metrotimes Live Broadcast Stream"
             className="w-full h-full border-0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -52,7 +52,7 @@ export default function LiveTVModal({ isOpen, onClose }: LiveTVModalProps) {
             <div className="flex items-center justify-center sm:justify-start space-x-2">
               <Radio className="w-4 h-4 text-red-500 animate-pulse" />
               <h4 className="text-sm font-bold text-white">
-                ABP News English Live Broadcast
+                Metrotimes English Live Broadcast
               </h4>
             </div>
             <p className="text-xs text-gray-400">

@@ -136,7 +136,7 @@ export default function WebStories({ stories }: WebStoriesProps) {
                 {activeStory.title}
               </h3>
               <p className="text-xs text-gray-300">
-                Tap right for next slide, left to go back. Stay updated with ABP Live web stories.
+                Tap right for next slide, left to go back. Stay updated with Metrotimes web stories.
               </p>
             </div>
 

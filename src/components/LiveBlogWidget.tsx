@@ -62,7 +62,7 @@ export default function LiveBlogWidget({ updates, podcasts }: LiveBlogWidgetProp
           </div>
         </div>
 
-        {/* RIGHT: ABP PODCASTS & AUDIO PLAYER (5 Cols) */}
+        {/* RIGHT: Metrotimes PODCASTS & AUDIO PLAYER (5 Cols) */}
         <div className="lg:col-span-5 bg-gray-950 text-white rounded-2xl p-5 shadow-lg border border-gray-800 flex flex-col justify-between space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-gray-800">
             <div className="flex items-center space-x-2">
@@ -70,7 +70,7 @@ export default function LiveBlogWidget({ updates, podcasts }: LiveBlogWidgetProp
                 <Mic className="w-5 h-5" />
               </div>
               <h3 className="text-base font-extrabold uppercase tracking-wider">
-                ABP News Podcasts
+                Metrotimes Podcasts
               </h3>
             </div>
             <span className="text-xs text-amber-400 font-bold uppercase tracking-wide">

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Header from '@/components/Header';
+import LeftSidebar from '@/components/LeftSidebar';
 import LeadHero from '@/components/LeadHero';
 import NewsGrid from '@/components/NewsGrid';
 import LiveBlogWidget from '@/components/LiveBlogWidget';
@@ -11,19 +12,29 @@ import WebStories from '@/components/WebStories';
 import LiveTVModal from '@/components/LiveTVModal';
 import SearchModal from '@/components/SearchModal';
 import Footer from '@/components/Footer';
-import { getNewsData, VideoItem } from '@/lib/getNewsData';
+import { getNewsData, VideoItem, Article } from '@/lib/getNewsData';
 
 export default function HomePage() {
   const newsData = getNewsData();
   const [isLiveTVOpen, setIsLiveTVOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState('home');
 
   const handlePlayVideo = (video: VideoItem) => {
     setIsLiveTVOpen(true);
   };
 
+  // Filter logic for when a specific tab is selected
+  const getFilteredArticles = (): Article[] => {
+    if (activeCategory === 'english' || activeCategory === 'home') return newsData.allArticles;
+    return newsData.allArticles.filter(a => a.category.toLowerCase() === activeCategory.toLowerCase());
+  };
+
+  const filteredArticles = getFilteredArticles();
+  const activeCategoryName = newsData.categories.find(c => c.id === activeCategory)?.name || (activeCategory === 'english' ? 'English News' : 'Home');
+
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col font-sans transition-colors">
       
       {/* 1. HEADER & TICKER */}
       <Header 
@@ -33,82 +44,107 @@ export default function HomePage() {
         weatherData={newsData.weatherData}
         onOpenLiveTV={() => setIsLiveTVOpen(true)}
         onOpenSearch={() => setIsSearchOpen(true)}
+        activeCategory={activeCategory}
+        onSelectCategory={(id) => setActiveCategory(id)}
       />
 
-      {/* MAIN CONTENT */}
-      <main className="flex-1 space-y-4 pb-12">
-        
-        {/* 2. LEAD HERO & TRENDING STORIES */}
-        <LeadHero 
-          leadStory={newsData.leadStory}
-          trendingNews={newsData.trendingNews}
-        />
+      <div className="flex flex-1 w-full max-w-[1600px] mx-auto">
+        {/* LEFT SIDEBAR (Explorer) HAS BEEN REMOVED */}
 
-        {/* 3. LIVE BLOG TIMELINE & ABP PODCASTS */}
-        <LiveBlogWidget 
-          updates={newsData.liveBlogUpdates}
-          podcasts={newsData.podcasts}
-        />
+        {/* MAIN CONTENT */}
+        <main className="flex-1 space-y-4 pb-12 w-full overflow-hidden">
+          
+          {activeCategory === 'home' || activeCategory === 'english' ? (
+            <>
+              {/* 2. LEAD HERO & TRENDING STORIES */}
+              <LeadHero 
+                leadStory={newsData.leadStory}
+                trendingNews={newsData.trendingNews}
+              />
 
-        {/* 4. INDIA NEWS SECTION */}
-        <NewsGrid 
-          title="India News"
-          categorySlug="india"
-          articles={newsData.indiaNews}
-          variant="grid"
-        />
+              {/* 3. LIVE BLOG TIMELINE & Metrotimes PODCASTS */}
+              <LiveBlogWidget 
+                updates={newsData.liveBlogUpdates}
+                podcasts={newsData.podcasts}
+              />
 
-        {/* 5. LAST 30 DAYS NEWS ARCHIVE FILTER */}
-        <ArchiveFilter 
-          categories={newsData.categories}
-          allArticles={newsData.allArticles}
-        />
+              {/* 4. INDIA NEWS SECTION */}
+              <NewsGrid 
+                title="India News"
+                categorySlug="india"
+                articles={newsData.indiaNews}
+                variant="grid"
+              />
 
-        {/* 6. VIDEO HUB SECTION */}
-        <VideoSection 
-          videos={newsData.videos}
-          onPlayVideo={handlePlayVideo}
-        />
+              {/* 5. LAST 30 DAYS NEWS ARCHIVE FILTER */}
+              <ArchiveFilter 
+                categories={newsData.categories}
+                allArticles={newsData.allArticles}
+              />
 
-        {/* 7. WORLD & BUSINESS SECTIONS */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <NewsGrid 
-              title="World News"
-              categorySlug="world"
-              articles={newsData.worldNews}
-              variant="featured-left"
-            />
-            <NewsGrid 
-              title="Business & Economy"
-              categorySlug="business"
-              articles={newsData.businessNews}
-              variant="featured-left"
-            />
-          </div>
-        </div>
+              {/* 6. VIDEO HUB SECTION */}
+              <VideoSection 
+                videos={newsData.videos}
+                onPlayVideo={handlePlayVideo}
+              />
 
-        {/* 8. WEB STORIES SECTION */}
-        <WebStories 
-          stories={newsData.webStories}
-        />
+              {/* 7. WORLD & BUSINESS SECTIONS */}
+              <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <NewsGrid 
+                    title="World News"
+                    categorySlug="world"
+                    articles={newsData.worldNews}
+                    variant="featured-left"
+                  />
+                  <NewsGrid 
+                    title="Business & Economy"
+                    categorySlug="business"
+                    articles={newsData.businessNews}
+                    variant="featured-left"
+                  />
+                </div>
+              </div>
 
-        {/* 9. SPORTS & ENTERTAINMENT SECTIONS */}
-        <NewsGrid 
-          title="Sports & Cricket"
-          categorySlug="sports"
-          articles={newsData.sportsNews}
-          variant="grid"
-        />
+              {/* 8. WEB STORIES SECTION */}
+              <WebStories 
+                stories={newsData.webStories}
+              />
 
-        <NewsGrid 
-          title="Entertainment & Showbiz"
-          categorySlug="entertainment"
-          articles={newsData.entertainmentNews}
-          variant="grid"
-        />
+              {/* 9. SPORTS & ENTERTAINMENT SECTIONS */}
+              <NewsGrid 
+                title="Sports & Cricket"
+                categorySlug="sports"
+                articles={newsData.sportsNews}
+                variant="grid"
+              />
 
-      </main>
+              <NewsGrid 
+                title="Entertainment & Showbiz"
+                categorySlug="entertainment"
+                articles={newsData.entertainmentNews}
+                variant="grid"
+              />
+            </>
+          ) : (
+            /* RENDER ONLY FILTERED CATEGORY WHEN TAB IS CLICKED */
+            <div className="pt-6 min-h-[50vh]">
+              <NewsGrid 
+                title={`${activeCategoryName} Latest News`}
+                categorySlug={activeCategory}
+                articles={filteredArticles}
+                variant="grid"
+              />
+              {filteredArticles.length === 0 && (
+                <div className="text-center text-gray-500 py-12">
+                  No articles found for this category.
+                </div>
+              )}
+            </div>
+          )}
+
+        </main>
+      </div>
 
       {/* 10. FOOTER */}
       <Footer categories={newsData.categories} />

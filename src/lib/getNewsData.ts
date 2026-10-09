@@ -104,13 +104,17 @@ export function getArticleByIdOrSlug(idOrSlug: string): Article | undefined {
 
 export function getArticlesByCategory(categorySlug: string): Article[] {
   const data = getNewsData();
-  const catUpper = categorySlug.toUpperCase();
-  if (categorySlug === 'home' || categorySlug === 'all') {
+  if (!categorySlug || categorySlug === 'home' || categorySlug === 'all') {
     return data.allArticles;
   }
+
+  // Exact or contains match on the category
+  const slugUpper = categorySlug.toUpperCase();
+  
   return data.allArticles.filter(a => 
-    a.category.toUpperCase().includes(catUpper) || 
-    catUpper.includes(a.category.toUpperCase())
+    a.category.toUpperCase() === slugUpper || 
+    slugUpper.includes(a.category.toUpperCase()) ||
+    a.category.toUpperCase().includes(slugUpper)
   );
 }
 
@@ -137,3 +141,5 @@ export function getArticlesByDateRange(daysLimit: number, categorySlug?: string)
 
   return filtered;
 }
+
+// trigger reload

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Clock, TrendingUp, ChevronRight, Flame } from 'lucide-react';
 import { Article } from '@/lib/getNewsData';
 
 interface LeadHeroProps {
@@ -11,107 +10,109 @@ interface LeadHeroProps {
 }
 
 export default function LeadHero({ leadStory, trendingNews }: LeadHeroProps) {
-  const topTrending = trendingNews.slice(0, 5);
+  const leftGridStories = trendingNews.slice(0, 4);
+  const rightTextStories = trendingNews.slice(4, 9);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 py-6 bg-white">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        {/* LEFT MAIN FEATURED HERO (8 Columns - Light Card) */}
-        <div className="lg:col-span-8 bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 group">
-          <div className="relative w-full aspect-[16/9] sm:aspect-[21/10] overflow-hidden bg-gray-900">
-            <img 
-              src={leadStory.image} 
-              alt={leadStory.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-            
-            {/* BADGES */}
-            <div className="absolute top-4 left-4 flex items-center space-x-2">
-              <span className="bg-[#E30613] text-white font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
-                {leadStory.category || 'TOP STORY'}
-              </span>
-              <span className="bg-amber-400 text-gray-950 font-bold text-xs px-2.5 py-1 rounded-full flex items-center space-x-1 shadow-md">
-                <Flame className="w-3 h-3 fill-current" />
-                <span>BREAKING</span>
-              </span>
+        {/* LEFT/MAIN COLUMN (2 columns wide) */}
+        <div className="lg:col-span-2">
+          {/* Lead Story */}
+          <Link href={`/article/${leadStory.id}`} className="group block mb-4">
+            <div className="w-full aspect-[16/9] overflow-hidden mb-4">
+              <img 
+                src={leadStory.image} 
+                alt={leadStory.title} 
+                className="w-full h-full object-cover" 
+              />
             </div>
+            <h1 className="text-2xl sm:text-[32px] font-bold text-gray-800 group-hover:text-[#E30613] leading-tight">
+              {leadStory.title}
+            </h1>
+          </Link>
 
-            {/* OVERLAY CONTENT */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white space-y-2">
-              <div className="flex items-center space-x-3 text-xs text-gray-200">
-                <span className="flex items-center space-x-1 font-semibold">
-                  <Clock className="w-3.5 h-3.5 text-amber-400" />
-                  <span>{leadStory.time}</span>
+          {/* Pagination Dots (Aesthetic to match image) */}
+          <div className="flex justify-center items-center space-x-1.5 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+            <span className="w-8 h-1.5 rounded-full bg-gray-500"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+          </div>
+
+          {/* Grid of smaller stories (2 columns) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
+            {leftGridStories.map(item => (
+              <div key={item.id} className="group">
+                <span className="text-[11px] font-bold text-[#E30613] uppercase tracking-wide block mb-1.5">
+                  {item.category}
                 </span>
-                <span>•</span>
-                <span className="font-bold text-amber-300">{leadStory.author}</span>
-                <span>•</span>
-                <span>{leadStory.readTime}</span>
-              </div>
-
-              <Link href={`/article/${leadStory.id}`}>
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight hover:text-amber-300 transition-colors line-clamp-3 text-white">
-                  {leadStory.title}
-                </h1>
-              </Link>
-
-              <p className="hidden sm:block text-xs sm:text-sm text-gray-200 line-clamp-2 leading-relaxed">
-                {leadStory.summary}
-              </p>
-
-              <div className="pt-2 flex items-center justify-between">
-                <Link 
-                  href={`/article/${leadStory.id}`}
-                  className="inline-flex items-center space-x-1.5 text-xs font-bold text-white bg-[#E30613] hover:bg-red-700 px-4 py-2 rounded-lg transition-colors shadow-md"
-                >
-                  <span>READ FULL STORY</span>
-                  <ChevronRight className="w-4 h-4" />
+                <Link href={`/article/${item.id}`} className="flex space-x-3 items-start">
+                  <div className="w-[100px] h-[65px] shrink-0 overflow-hidden rounded-sm">
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                  </div>
+                  <h3 className="text-[15px] font-semibold text-[#004b79] group-hover:text-[#E30613] leading-snug line-clamp-3">
+                    {item.title}
+                  </h3>
                 </Link>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* RIGHT TRENDING SIDEBAR (4 Columns - Light Card) */}
-        <div className="lg:col-span-4 bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-200">
-          <div className="flex items-center justify-between pb-3 mb-4 border-b border-gray-200">
-            <div className="flex items-center space-x-2">
-              <div className="p-1.5 bg-red-100 rounded-md">
-                <TrendingUp className="w-5 h-5 text-[#E30613]" />
-              </div>
-              <h2 className="text-base font-extrabold text-gray-900 uppercase tracking-wider">
-                Trending Headlines
-              </h2>
-            </div>
-            <span className="text-xs font-bold text-[#E30613] bg-red-50 px-2 py-0.5 rounded border border-red-200">
-              LIVE
-            </span>
-          </div>
-
-          <div className="space-y-3">
-            {topTrending.map((item, index) => (
-              <div key={item.id} className="flex items-start space-x-3 group border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                <span className="text-2xl font-black text-[#E30613]/30 group-hover:text-[#E30613] transition-colors w-6 shrink-0 leading-none">
-                  0{index + 1}
+        {/* RIGHT COLUMN (1 column wide) */}
+        <div className="lg:col-span-1 space-y-6 lg:pl-4">
+          
+          {/* Text List of stories */}
+          <div className="space-y-5 pt-2">
+            {rightTextStories.map(item => (
+              <div key={item.id} className="group">
+                <span className="text-[11px] font-bold text-[#E30613] uppercase tracking-wide block mb-1">
+                  {item.category}
                 </span>
-
-                <div className="flex-1 space-y-1">
-                  <span className="text-[10px] font-bold text-[#E30613] uppercase tracking-wide">
-                    {item.category}
-                  </span>
-                  <Link href={`/article/${item.id}`}>
-                    <h3 className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-[#E30613] transition-colors leading-snug line-clamp-2">
-                      {item.title}
-                    </h3>
-                  </Link>
-                  <span className="text-[11px] text-gray-500 block pt-0.5">
-                    {item.time}
-                  </span>
-                </div>
+                <Link href={`/article/${item.id}`}>
+                  <h3 className="text-[17px] font-semibold text-[#004b79] group-hover:text-[#E30613] leading-snug line-clamp-3">
+                    {item.title}
+                  </h3>
+                </Link>
               </div>
             ))}
+          </div>
+
+          {/* TRENDING SECTION */}
+          <div className="pt-4">
+            {/* Orange Header */}
+            <div className="bg-gradient-to-r from-orange-400 to-amber-500 py-1.5 px-3 flex items-center mb-4">
+              <svg className="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+              <h2 className="text-white font-extrabold text-sm uppercase tracking-wider m-0 leading-none mt-0.5">
+                TRENDING
+              </h2>
+            </div>
+            
+            {/* Trending List */}
+            <div className="space-y-4">
+              {trendingNews.slice(0, 5).map((item, index) => (
+                <div key={item.id} className="flex items-start space-x-3 group border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                  <span className="text-3xl font-bold text-gray-300 group-hover:text-[#E30613] transition-colors shrink-0 leading-none mt-1">
+                    {index + 1}
+                  </span>
+                  <div className="flex-1 space-y-1">
+                    <span className="text-[10px] font-bold text-[#E30613] uppercase tracking-wide">
+                      {item.category}
+                    </span>
+                    <Link href={`/article/${item.id}`}>
+                      <h3 className="text-sm font-semibold text-[#004b79] group-hover:text-[#E30613] transition-colors leading-snug line-clamp-2">
+                        {item.title}
+                      </h3>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
