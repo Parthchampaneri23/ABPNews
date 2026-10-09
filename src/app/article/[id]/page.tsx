@@ -10,7 +10,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import LiveTVModal from '@/components/LiveTVModal';
 import SearchModal from '@/components/SearchModal';
-import { getNewsData, getArticleByIdOrSlug } from '@/lib/getNewsData';
+import { getNewsData, getArticleByIdOrSlug, getArticleUrl } from '@/lib/getNewsData';
 
 interface ArticlePageProps {
  params: Promise<{ id: string }>;

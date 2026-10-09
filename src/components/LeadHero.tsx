@@ -1,8 +1,6 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
-import { Article } from '@/lib/getNewsData';
+import { Article, getArticleUrl } from '@/lib/getNewsData';
 
 interface LeadHeroProps {
   leadStory: Article;
@@ -20,7 +18,7 @@ export default function LeadHero({ leadStory, trendingNews }: LeadHeroProps) {
         {/* LEFT/MAIN COLUMN (2 columns wide) */}
         <div className="lg:col-span-2">
           {/* Lead Story */}
-          <Link href={`/article/${leadStory.id}`} className="group block mb-4">
+          <Link href={getArticleUrl(leadStory)} className="group block mb-4">
             <div className="w-full aspect-[16/9] overflow-hidden mb-4">
               <img 
                 src={leadStory.image} 
@@ -49,7 +47,7 @@ export default function LeadHero({ leadStory, trendingNews }: LeadHeroProps) {
                 <span className="text-[11px] font-bold text-[#E30613] uppercase tracking-wide block mb-1.5">
                   {item.category}
                 </span>
-                <Link href={`/article/${item.id}`} className="flex space-x-3 items-start">
+                <Link href={getArticleUrl(item)} className="flex space-x-3 items-start">
                   <div className="w-[100px] h-[65px] shrink-0 overflow-hidden rounded-sm">
                     <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                   </div>
@@ -72,7 +70,7 @@ export default function LeadHero({ leadStory, trendingNews }: LeadHeroProps) {
                 <span className="text-[11px] font-bold text-[#E30613] uppercase tracking-wide block mb-1">
                   {item.category}
                 </span>
-                <Link href={`/article/${item.id}`}>
+                <Link href={getArticleUrl(item)}>
                   <h3 className="text-[17px] font-semibold text-[#004b79] group-hover:text-[#E30613] leading-snug line-clamp-3">
                     {item.title}
                   </h3>
@@ -104,7 +102,7 @@ export default function LeadHero({ leadStory, trendingNews }: LeadHeroProps) {
                     <span className="text-[10px] font-bold text-[#E30613] uppercase tracking-wide">
                       {item.category}
                     </span>
-                    <Link href={`/article/${item.id}`}>
+                    <Link href={getArticleUrl(item)}>
                       <h3 className="text-sm font-semibold text-[#004b79] group-hover:text-[#E30613] transition-colors leading-snug line-clamp-2">
                         {item.title}
                       </h3>

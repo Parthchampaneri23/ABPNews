@@ -97,6 +97,13 @@ export function getNewsData(): NewsDataset {
   return newsData as NewsDataset;
 }
 
+export function getArticleUrl(article: Article): string {
+  if (!article) return '/';
+  const categorySlug = (article.category || 'news').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
+  const articleSlug = article.slug || article.id;
+  return `/${categorySlug}/${articleSlug}`;
+}
+
 export function getArticleByIdOrSlug(idOrSlug: string): Article | undefined {
   const data = getNewsData();
   return data.allArticles.find(a => a.id === idOrSlug || a.slug === idOrSlug || a.id === `art-${idOrSlug}`) || data.leadStory;

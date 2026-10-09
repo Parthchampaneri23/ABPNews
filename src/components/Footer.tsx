@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Globe, Smartphone, Mail, ArrowUpRight, ShieldCheck, Heart } from 'lucide-react';
+import { Send, Share2, Globe } from 'lucide-react';
 import { Category } from '@/lib/getNewsData';
 
 interface FooterProps {
@@ -10,64 +10,35 @@ interface FooterProps {
 }
 
 export default function Footer({ categories }: FooterProps) {
+  const displayCategories = categories.slice(0, 8);
+
   return (
     <footer className="bg-[#0a1d28] text-gray-400 border-t-4 border-red-600">
-      
-      {/* NEWSLETTER BANNER */}
-      <div className="bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white py-8 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="space-y-1 text-center md:text-left">
-            <h3 className="text-xl font-extrabold tracking-tight">
-              Stay Informed with Metrotimes Newsletters
-            </h3>
-            <p className="text-xs text-red-100">
-              Get top morning headlines, breaking alerts, and expert analysis delivered to your inbox.
-            </p>
-          </div>
-
-          <div className="flex w-full md:w-auto max-w-md space-x-2">
-            <input 
-              type="email" 
-              placeholder="Enter your email address" 
-              className="px-4 py-2.5 rounded-lg text-xs text-gray-900 bg-white focus:outline-none flex-1 font-medium"
-            />
-            <button className="bg-white hover:bg-gray-100 text-red-600 text-xs font-extrabold px-5 py-2.5 rounded-lg uppercase tracking-wider transition-colors shadow-md">
-              SUBSCRIBE
-            </button>
-          </div>
-        </div>
-      </div>
 
       {/* MAIN FOOTER LINKS */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-        
-        {/* BRAND COL */}
-        <div className="space-y-4">
-          <Link href="/" className="inline-block bg-white px-3 py-2 rounded">
-            <img src="/logo1.png" alt="Metrotimes" className="h-10 sm:h-12 object-contain" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+        {/* SECTION 1: BRAND COL */}
+        <div className="space-y-3">
+          <Link href="/" className="inline-block bg-white px-3 py-2 rounded shadow-sm">
+            <img src="/logo1.png" alt="Metrotimes" className="h-9 object-contain" />
           </Link>
           <p className="text-xs text-gray-400 leading-relaxed">
             Metrotimes is India&apos;s leading digital news destination bringing real-time breaking news updates, political coverage, sports, entertainment, and ground reports.
           </p>
-          <div className="pt-2 flex items-center space-x-3 text-xs text-gray-400">
-            <span className="flex items-center space-x-1">
-              <ShieldCheck className="w-4 h-4 text-emerald-500" />
-              <span>Verified Publishing</span>
-            </span>
-          </div>
         </div>
 
-        {/* CATEGORIES COL */}
+        {/* SECTION 2: NEWS CATEGORIES (4 and 4) */}
         <div className="space-y-3">
-          <h4 className="text-sm font-extrabold uppercase text-white tracking-wider border-b border-gray-700 pb-2">
+          <h4 className="text-xs font-extrabold uppercase text-white tracking-wider border-b border-gray-700/80 pb-2">
             News Categories
           </h4>
-          <ul className="grid grid-cols-2 gap-2 text-xs font-medium">
-            {categories.map((cat) => (
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs font-medium">
+            {displayCategories.map((cat) => (
               <li key={cat.id}>
-                <Link 
+                <Link
                   href={cat.id === 'home' ? '/' : `/category/${cat.id}`}
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors block py-0.5"
                 >
                   {cat.name}
                 </Link>
@@ -76,51 +47,43 @@ export default function Footer({ categories }: FooterProps) {
           </ul>
         </div>
 
-        {/* NETWORK SITES */}
+        {/* SECTION 3: FOLLOW US & SOCIAL MEDIA */}
         <div className="space-y-3">
-          <h4 className="text-sm font-extrabold uppercase text-white tracking-wider border-b border-gray-700 pb-2">
-            Metrotimes Languages
+          <h4 className="text-xs font-extrabold uppercase text-white tracking-wider border-b border-gray-700/80 pb-2">
+            Follow Us & Connect
           </h4>
-          <ul className="space-y-2 text-xs font-medium">
-            <li><a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center justify-between"><span>Metrotimes English</span><ArrowUpRight className="w-3 h-3 text-gray-500" /></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center justify-between"><span>Metrotimes Hindi</span><ArrowUpRight className="w-3 h-3 text-gray-500" /></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center justify-between"><span>Metrotimes Marathi</span><ArrowUpRight className="w-3 h-3 text-gray-500" /></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center justify-between"><span>Metrotimes Bengali</span><ArrowUpRight className="w-3 h-3 text-gray-500" /></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center justify-between"><span>Metrotimes Gujarati</span><ArrowUpRight className="w-3 h-3 text-gray-500" /></a></li>
-          </ul>
-        </div>
-
-        {/* APPS & LEGAL */}
-        <div className="space-y-3">
-          <h4 className="text-sm font-extrabold uppercase text-white tracking-wider border-b border-gray-700 pb-2">
-            Download Metrotimes App
-          </h4>
-          <p className="text-xs text-gray-400">
-            Get instant breaking news alerts on iOS & Android devices.
+          <p className="text-xs text-gray-400 leading-relaxed">
+            Stay connected for 24x7 breaking news alerts & exclusive updates across social channels:
           </p>
-          <div className="flex space-x-2 pt-2">
-            <button className="bg-[#051118] border border-gray-700 hover:border-gray-500 px-3 py-2 rounded-lg text-xs font-semibold flex items-center space-x-2 text-white transition-colors">
-              <Smartphone className="w-4 h-4 text-red-500" />
-              <span>App Store</span>
-            </button>
-            <button className="bg-[#051118] border border-gray-700 hover:border-gray-500 px-3 py-2 rounded-lg text-xs font-semibold flex items-center space-x-2 text-white transition-colors">
-              <Smartphone className="w-4 h-4 text-emerald-500" />
-              <span>Google Play</span>
-            </button>
+          <div className="flex items-center space-x-2.5 pt-1">
+            {/* Facebook */}
+            <a href="#" className="p-2 bg-gray-900 hover:bg-blue-600 text-gray-300 hover:text-white rounded-xl transition-all duration-200 border border-gray-800 shadow-sm" title="Facebook">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+            </a>
+            {/* X / Twitter */}
+            <a href="#" className="p-2 bg-gray-900 hover:bg-black text-gray-300 hover:text-white rounded-xl transition-all duration-200 border border-gray-800 shadow-sm" title="Twitter / X">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+            </a>
+            {/* Instagram */}
+            <a href="#" className="p-2 bg-gray-900 hover:bg-pink-600 text-gray-300 hover:text-white rounded-xl transition-all duration-200 border border-gray-800 shadow-sm" title="Instagram">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+            </a>
+            {/* YouTube */}
+            <a href="#" className="p-2 bg-gray-900 hover:bg-red-600 text-gray-300 hover:text-white rounded-xl transition-all duration-200 border border-gray-800 shadow-sm" title="YouTube">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
+            </a>
           </div>
         </div>
 
       </div>
 
       {/* BOTTOM LEGAL & COPYRIGHT */}
-      <div className="bg-[#051118] border-t border-gray-800 py-4 px-4 sm:px-6 text-center text-xs text-gray-500">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>&copy; 2026 Metrotimes Media Pvt. Ltd. All rights reserved.</span>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Terms of Use</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Contact Us</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Editorial Policy</a>
+      <div className="bg-[#051118] border-t border-gray-800/80 py-4 px-4 sm:px-6 text-center text-xs text-gray-500">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span suppressHydrationWarning>&copy; 2026 Metrotimes Media Pvt. Ltd. All rights reserved.</span>
+          <div className="flex space-x-4 font-medium" suppressHydrationWarning>
+            <Link href="/privacy-policy" className="hover:text-gray-300 transition-colors">Privacy Policy</Link>
+            <Link href="/contact-us" className="hover:text-gray-300 transition-colors">Contact Us</Link>
           </div>
         </div>
       </div>

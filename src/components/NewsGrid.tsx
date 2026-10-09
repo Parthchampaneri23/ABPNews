@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Clock, ChevronRight } from 'lucide-react';
-import { Article } from '@/lib/getNewsData';
+import { Article, getArticleUrl } from '@/lib/getNewsData';
 
 interface NewsGridProps {
   title: string;
@@ -63,7 +63,7 @@ export default function NewsGrid({ title, categorySlug, articles, variant = 'gri
                     <span>{item.time}</span>
                   </span>
 
-                  <Link href={`/article/${item.id}`}>
+                  <Link href={getArticleUrl(item)}>
                     <h3 className="text-sm font-bold text-gray-900 group-hover:text-[#E30613] transition-colors line-clamp-2 leading-snug">
                       {item.title}
                     </h3>
@@ -77,7 +77,7 @@ export default function NewsGrid({ title, categorySlug, articles, variant = 'gri
                 <div className="pt-2 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
                   <span className="font-semibold text-gray-700">{item.author}</span>
                   <Link 
-                    href={`/article/${item.id}`}
+                    href={getArticleUrl(item)}
                     className="text-[#E30613] font-bold hover:underline"
                   >
                     Read &rarr;
@@ -112,7 +112,7 @@ export default function NewsGrid({ title, categorySlug, articles, variant = 'gri
                   <span>•</span>
                   <span>{articles[0].readTime}</span>
                 </div>
-                <Link href={`/article/${articles[0].id}`}>
+                <Link href={getArticleUrl(articles[0])}>
                   <h3 className="text-lg font-extrabold text-gray-900 group-hover:text-[#E30613] transition-colors leading-snug">
                     {articles[0].title}
                   </h3>
@@ -142,7 +142,7 @@ export default function NewsGrid({ title, categorySlug, articles, variant = 'gri
                   <span className="text-[10px] font-bold text-[#E30613] uppercase tracking-wider">
                     {item.category}
                   </span>
-                  <Link href={`/article/${item.id}`}>
+                  <Link href={getArticleUrl(item)}>
                     <h4 className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-[#E30613] transition-colors line-clamp-2 leading-snug">
                       {item.title}
                     </h4>

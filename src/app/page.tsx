@@ -7,7 +7,6 @@ import LeadHero from '@/components/LeadHero';
 import NewsGrid from '@/components/NewsGrid';
 import ArchiveFilter from '@/components/ArchiveFilter';
 import VideoSection from '@/components/VideoSection';
-import WebStories from '@/components/WebStories';
 import LiveTVModal from '@/components/LiveTVModal';
 import SearchModal from '@/components/SearchModal';
 import Footer from '@/components/Footer';
@@ -25,18 +24,18 @@ export default function HomePage() {
 
   // Filter logic for when a specific tab is selected
   const getFilteredArticles = (): Article[] => {
-    if (activeCategory === 'english' || activeCategory === 'home') return newsData.allArticles;
+    if (activeCategory === 'news' || activeCategory === 'english' || activeCategory === 'home') return newsData.allArticles;
     return newsData.allArticles.filter(a => a.category.toLowerCase() === activeCategory.toLowerCase());
   };
 
   const filteredArticles = getFilteredArticles();
-  const activeCategoryName = newsData.categories.find(c => c.id === activeCategory)?.name || (activeCategory === 'english' ? 'English News' : 'Home');
+  const activeCategoryName = newsData.categories.find(c => c.id === activeCategory)?.name || 'News';
 
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col font-sans transition-colors">
-      
+
       {/* 1. HEADER & TICKER */}
-      <Header 
+      <Header
         categories={newsData.categories}
         ticker={newsData.ticker}
         marketTicker={newsData.marketTicker}
@@ -52,17 +51,17 @@ export default function HomePage() {
 
         {/* MAIN CONTENT */}
         <main className="flex-1 space-y-4 pb-12 w-full overflow-hidden">
-          
+
           {activeCategory === 'home' || activeCategory === 'english' ? (
             <>
               {/* 2. LEAD HERO & TRENDING STORIES */}
-              <LeadHero 
+              <LeadHero
                 leadStory={newsData.leadStory}
                 trendingNews={newsData.trendingNews}
               />
 
               {/* 4. INDIA NEWS SECTION */}
-              <NewsGrid 
+              <NewsGrid
                 title="India News"
                 categorySlug="india"
                 articles={newsData.indiaNews}
@@ -70,13 +69,13 @@ export default function HomePage() {
               />
 
               {/* 5. LAST 30 DAYS NEWS ARCHIVE FILTER */}
-              <ArchiveFilter 
+              <ArchiveFilter
                 categories={newsData.categories}
                 allArticles={newsData.allArticles}
               />
 
               {/* 6. VIDEO HUB SECTION */}
-              <VideoSection 
+              <VideoSection
                 videos={newsData.videos}
                 onPlayVideo={handlePlayVideo}
               />
@@ -84,13 +83,13 @@ export default function HomePage() {
               {/* 7. WORLD & BUSINESS SECTIONS */}
               <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <NewsGrid 
+                  <NewsGrid
                     title="World News"
                     categorySlug="world"
                     articles={newsData.worldNews}
                     variant="featured-left"
                   />
-                  <NewsGrid 
+                  <NewsGrid
                     title="Business & Economy"
                     categorySlug="business"
                     articles={newsData.businessNews}
@@ -99,20 +98,15 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* 8. WEB STORIES SECTION */}
-              <WebStories 
-                stories={newsData.webStories}
-              />
-
               {/* 9. SPORTS & ENTERTAINMENT SECTIONS */}
-              <NewsGrid 
+              <NewsGrid
                 title="Sports & Cricket"
                 categorySlug="sports"
                 articles={newsData.sportsNews}
                 variant="grid"
               />
 
-              <NewsGrid 
+              <NewsGrid
                 title="Entertainment & Showbiz"
                 categorySlug="entertainment"
                 articles={newsData.entertainmentNews}
@@ -122,7 +116,7 @@ export default function HomePage() {
           ) : (
             /* RENDER ONLY FILTERED CATEGORY WHEN TAB IS CLICKED */
             <div className="pt-6 min-h-[50vh]">
-              <NewsGrid 
+              <NewsGrid
                 title={`${activeCategoryName} Latest News`}
                 categorySlug={activeCategory}
                 articles={filteredArticles}
@@ -143,12 +137,12 @@ export default function HomePage() {
       <Footer categories={newsData.categories} />
 
       {/* MODALS */}
-      <LiveTVModal 
+      <LiveTVModal
         isOpen={isLiveTVOpen}
         onClose={() => setIsLiveTVOpen(false)}
       />
 
-      <SearchModal 
+      <SearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
         articles={newsData.allArticles}

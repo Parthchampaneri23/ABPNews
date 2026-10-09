@@ -58,14 +58,9 @@
   ],
   "categories": [
     {
-      "id": "english",
-      "name": "English News",
-      "slug": "/"
-    },
-    {
       "id": "news",
       "name": "News",
-      "slug": "/category/news"
+      "slug": "/"
     },
     {
       "id": "business",
@@ -171,7 +166,7 @@
     },
     {
       "id": "art-3",
-      "title": "ElectionBypoll Results 2026 Live: Early Trends Show Advantage BJP In Bengal, Assam; TVK In TN",
+      "title": "Bypoll Results 2026 Live: Early Trends Show Advantage BJP In Bengal, Assam; TVK In TN",
       "slug": "by-election-results-2026-live-updates-bypolls-west-bengal-nandigram-rejinagar-tamil-nadu-assembly-results-winners-1870507",
       "link": "https://news.abplive.com/elections/by-election-results-2026-live-updates-bypolls-west-bengal-nandigram-rejinagar-tamil-nadu-assembly-results-winners-1870507",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -190,7 +185,7 @@
     },
     {
       "id": "art-4",
-      "title": "IndiaCongress Women Leaders Slap Each Other During INDIA Bloc Protest In Faridabad: Video",
+      "title": "Congress Women Leaders Slap Each Other During INDIA Bloc Protest In Faridabad: Video",
       "slug": "congress-women-leaders-slap-each-other-during-india-bloc-protest-against-cec-in-faridabad-video-goes-viral-1870513",
       "link": "https://news.abplive.com/news/india/congress-women-leaders-slap-each-other-during-india-bloc-protest-against-cec-in-faridabad-video-goes-viral-1870513",
       "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2026/01/31/5380a264267bdee5c3ce77a772cd5fa91769798366384616_original.png",
@@ -228,7 +223,7 @@
     },
     {
       "id": "art-6",
-      "title": "IndiaUP couple accidentally leaves 8-year-old son at Himachal's roadside eatery; reunited",
+      "title": "UP couple accidentally leaves 8-year-old son at Himachal's roadside eatery; reunited",
       "slug": "up-couple-accidentally-leaves-8-year-old-son-at-himachal-s-roadside-eatery-reunited-1870490",
       "link": "https://news.abplive.com/news/india/up-couple-accidentally-leaves-8-year-old-son-at-himachal-s-roadside-eatery-reunited-1870490",
       "image": "https://feeds.abplive.com/imagebank/default_9x16.png",
@@ -247,7 +242,7 @@
     },
     {
       "id": "art-7",
-      "title": "IndiaAmitabh Bachchan pays tribute to Nana Patekar, recalls actor’s social work",
+      "title": "Amitabh Bachchan pays tribute to Nana Patekar, recalls actor’s social work",
       "slug": "amitabh-bachchan-pays-tribute-to-nana-patekar-recalls-actor-s-social-work-1870488",
       "link": "https://news.abplive.com/news/india/amitabh-bachchan-pays-tribute-to-nana-patekar-recalls-actor-s-social-work-1870488",
       "image": "https://cdn.abplive.com/images/weather/powerdby_logo.png",
@@ -306,7 +301,7 @@
     },
     {
       "id": "art-3",
-      "title": "ElectionBypoll Results 2026 Live: Early Trends Show Advantage BJP In Bengal, Assam; TVK In TN",
+      "title": "Bypoll Results 2026 Live: Early Trends Show Advantage BJP In Bengal, Assam; TVK In TN",
       "slug": "by-election-results-2026-live-updates-bypolls-west-bengal-nandigram-rejinagar-tamil-nadu-assembly-results-winners-1870507",
       "link": "https://news.abplive.com/elections/by-election-results-2026-live-updates-bypolls-west-bengal-nandigram-rejinagar-tamil-nadu-assembly-results-winners-1870507",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -325,7 +320,7 @@
     },
     {
       "id": "art-4",
-      "title": "IndiaCongress Women Leaders Slap Each Other During INDIA Bloc Protest In Faridabad: Video",
+      "title": "Congress Women Leaders Slap Each Other During INDIA Bloc Protest In Faridabad: Video",
       "slug": "congress-women-leaders-slap-each-other-during-india-bloc-protest-against-cec-in-faridabad-video-goes-viral-1870513",
       "link": "https://news.abplive.com/news/india/congress-women-leaders-slap-each-other-during-india-bloc-protest-against-cec-in-faridabad-video-goes-viral-1870513",
       "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2026/01/31/5380a264267bdee5c3ce77a772cd5fa91769798366384616_original.png",
@@ -363,7 +358,7 @@
     },
     {
       "id": "art-6",
-      "title": "IndiaUP couple accidentally leaves 8-year-old son at Himachal's roadside eatery; reunited",
+      "title": "UP couple accidentally leaves 8-year-old son at Himachal's roadside eatery; reunited",
       "slug": "up-couple-accidentally-leaves-8-year-old-son-at-himachal-s-roadside-eatery-reunited-1870490",
       "link": "https://news.abplive.com/news/india/up-couple-accidentally-leaves-8-year-old-son-at-himachal-s-roadside-eatery-reunited-1870490",
       "image": "https://feeds.abplive.com/imagebank/default_9x16.png",
@@ -382,7 +377,7 @@
     },
     {
       "id": "art-7",
-      "title": "IndiaAmitabh Bachchan pays tribute to Nana Patekar, recalls actor’s social work",
+      "title": "Amitabh Bachchan pays tribute to Nana Patekar, recalls actor’s social work",
       "slug": "amitabh-bachchan-pays-tribute-to-nana-patekar-recalls-actor-s-social-work-1870488",
       "link": "https://news.abplive.com/news/india/amitabh-bachchan-pays-tribute-to-nana-patekar-recalls-actor-s-social-work-1870488",
       "image": "https://cdn.abplive.com/images/weather/powerdby_logo.png",
@@ -422,7 +417,7 @@
   "worldNews": [
     {
       "id": "art-11",
-      "title": "WorldUS Military Confirms Livestream Of Nidal Hasan’s Execution After Hegseth’s ‘Public’ Remark",
+      "title": "US Military Confirms Livestream Of Nidal Hasan’s Execution After Hegseth’s ‘Public’ Remark",
       "slug": "fort-hooder-nidal-hasan-execution-us-military-confirms-livestream-after-hegseth-public-remark-1870517",
       "link": "https://news.abplive.com/news/world/fort-hooder-nidal-hasan-execution-us-military-confirms-livestream-after-hegseth-public-remark-1870517",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -441,7 +436,7 @@
     },
     {
       "id": "art-12",
-      "title": "WorldUS ICE Agents Shoot Man In New York With 5-Year-Old In Car, Mamdani Vows To Confront Trump",
+      "title": "US ICE Agents Shoot Man In New York With 5-Year-Old In Car, Mamdani Vows To Confront Trump",
       "slug": "us-ice-agents-shoot-man-in-new-york-with-5-year-old-in-car-mamdani-vows-to-demand-end-to-raids-confront-trump-1870500",
       "link": "https://news.abplive.com/news/world/us-ice-agents-shoot-man-in-new-york-with-5-year-old-in-car-mamdani-vows-to-demand-end-to-raids-confront-trump-1870500",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -460,7 +455,7 @@
     },
     {
       "id": "art-13",
-      "title": "WorldCaptain Smit Machchhar To Receive Israel’s Highest Civilian Bravery Award",
+      "title": "Captain Smit Machchhar To Receive Israel’s Highest Civilian Bravery Award",
       "slug": "flydubai-cockpit-attack-smit-machchhar-to-receive-israel-highest-civilian-bravery-award-1870498",
       "link": "https://news.abplive.com/news/world/flydubai-cockpit-attack-smit-machchhar-to-receive-israel-highest-civilian-bravery-award-1870498",
       "image": "https://feeds.abplive.com/imagebank/default_9x16.png",
@@ -479,7 +474,7 @@
     },
     {
       "id": "art-14",
-      "title": "WorldHouthi Missile Attacks On Riyadh Damage Kindergarten, Medical Complex In Saudi Arabia",
+      "title": "Houthi Missile Attacks On Riyadh Damage Kindergarten, Medical Complex In Saudi Arabia",
       "slug": "saudi-houthi-conflict-houthi-missile-attacks-on-riyadh-damage-kindergarten-medical-complex-1870495",
       "link": "https://news.abplive.com/news/world/saudi-houthi-conflict-houthi-missile-attacks-on-riyadh-damage-kindergarten-medical-complex-1870495",
       "image": "https://cdn.abplive.com/images/weather/powerdby_logo.png",
@@ -498,7 +493,7 @@
     },
     {
       "id": "art-15",
-      "title": "WorldIndia-Cote d’Ivoire partnership anchored in mutual respect: Jaishankar",
+      "title": "India-Cote d’Ivoire partnership anchored in mutual respect: Jaishankar",
       "slug": "india-cote-d-ivoire-partnership-anchored-in-mutual-respect-jaishankar-1870493",
       "link": "https://news.abplive.com/news/world/india-cote-d-ivoire-partnership-anchored-in-mutual-respect-jaishankar-1870493",
       "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2025/05/04/baa3c4bb9c7d9c63868779a3bbdf626b174634122863731_original.png",
@@ -922,7 +917,7 @@
     },
     {
       "id": "art-233",
-      "title": "BusinessImmigration, skilled talent mobility distinct: Nasscom as US suspends IT firms from green card prog",
+      "title": "Immigration, skilled talent mobility distinct: Nasscom as US suspends IT firms from green card prog",
       "slug": "immigration-skilled-talent-mobility-distinct-nasscom-as-us-suspends-it-firms-from-green-card-prog-1870489",
       "link": "https://news.abplive.com/business/immigration-skilled-talent-mobility-distinct-nasscom-as-us-suspends-it-firms-from-green-card-prog-1870489",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -941,7 +936,7 @@
     },
     {
       "id": "art-234",
-      "title": "BusinessGST Council Makes Major Changes, Scraps Arrest Powers Of Tax Officers",
+      "title": "GST Council Makes Major Changes, Scraps Arrest Powers Of Tax Officers",
       "slug": "gst-council-ends-arrest-powers-hikes-prosecution-threshold-fivefold-to-rs-5-crore-1870454",
       "link": "https://news.abplive.com/business/gst-council-ends-arrest-powers-hikes-prosecution-threshold-fivefold-to-rs-5-crore-1870454",
       "image": "https://feeds.abplive.com/imagebank/default_9x16.png",
@@ -1077,7 +1072,7 @@
     },
     {
       "id": "art-3",
-      "title": "ElectionBypoll Results 2026 Live: Early Trends Show Advantage BJP In Bengal, Assam; TVK In TN",
+      "title": "Bypoll Results 2026 Live: Early Trends Show Advantage BJP In Bengal, Assam; TVK In TN",
       "slug": "by-election-results-2026-live-updates-bypolls-west-bengal-nandigram-rejinagar-tamil-nadu-assembly-results-winners-1870507",
       "link": "https://news.abplive.com/elections/by-election-results-2026-live-updates-bypolls-west-bengal-nandigram-rejinagar-tamil-nadu-assembly-results-winners-1870507",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -1096,7 +1091,7 @@
     },
     {
       "id": "art-4",
-      "title": "IndiaCongress Women Leaders Slap Each Other During INDIA Bloc Protest In Faridabad: Video",
+      "title": "Congress Women Leaders Slap Each Other During INDIA Bloc Protest In Faridabad: Video",
       "slug": "congress-women-leaders-slap-each-other-during-india-bloc-protest-against-cec-in-faridabad-video-goes-viral-1870513",
       "link": "https://news.abplive.com/news/india/congress-women-leaders-slap-each-other-during-india-bloc-protest-against-cec-in-faridabad-video-goes-viral-1870513",
       "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2026/01/31/5380a264267bdee5c3ce77a772cd5fa91769798366384616_original.png",
@@ -1134,7 +1129,7 @@
     },
     {
       "id": "art-6",
-      "title": "IndiaUP couple accidentally leaves 8-year-old son at Himachal's roadside eatery; reunited",
+      "title": "UP couple accidentally leaves 8-year-old son at Himachal's roadside eatery; reunited",
       "slug": "up-couple-accidentally-leaves-8-year-old-son-at-himachal-s-roadside-eatery-reunited-1870490",
       "link": "https://news.abplive.com/news/india/up-couple-accidentally-leaves-8-year-old-son-at-himachal-s-roadside-eatery-reunited-1870490",
       "image": "https://feeds.abplive.com/imagebank/default_9x16.png",
@@ -1153,7 +1148,7 @@
     },
     {
       "id": "art-7",
-      "title": "IndiaAmitabh Bachchan pays tribute to Nana Patekar, recalls actor’s social work",
+      "title": "Amitabh Bachchan pays tribute to Nana Patekar, recalls actor’s social work",
       "slug": "amitabh-bachchan-pays-tribute-to-nana-patekar-recalls-actor-s-social-work-1870488",
       "link": "https://news.abplive.com/news/india/amitabh-bachchan-pays-tribute-to-nana-patekar-recalls-actor-s-social-work-1870488",
       "image": "https://cdn.abplive.com/images/weather/powerdby_logo.png",
@@ -1229,7 +1224,7 @@
     },
     {
       "id": "art-11",
-      "title": "WorldUS Military Confirms Livestream Of Nidal Hasan’s Execution After Hegseth’s ‘Public’ Remark",
+      "title": "US Military Confirms Livestream Of Nidal Hasan’s Execution After Hegseth’s ‘Public’ Remark",
       "slug": "fort-hooder-nidal-hasan-execution-us-military-confirms-livestream-after-hegseth-public-remark-1870517",
       "link": "https://news.abplive.com/news/world/fort-hooder-nidal-hasan-execution-us-military-confirms-livestream-after-hegseth-public-remark-1870517",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -1248,7 +1243,7 @@
     },
     {
       "id": "art-12",
-      "title": "WorldUS ICE Agents Shoot Man In New York With 5-Year-Old In Car, Mamdani Vows To Confront Trump",
+      "title": "US ICE Agents Shoot Man In New York With 5-Year-Old In Car, Mamdani Vows To Confront Trump",
       "slug": "us-ice-agents-shoot-man-in-new-york-with-5-year-old-in-car-mamdani-vows-to-demand-end-to-raids-confront-trump-1870500",
       "link": "https://news.abplive.com/news/world/us-ice-agents-shoot-man-in-new-york-with-5-year-old-in-car-mamdani-vows-to-demand-end-to-raids-confront-trump-1870500",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -1267,7 +1262,7 @@
     },
     {
       "id": "art-13",
-      "title": "WorldCaptain Smit Machchhar To Receive Israel’s Highest Civilian Bravery Award",
+      "title": "Captain Smit Machchhar To Receive Israel’s Highest Civilian Bravery Award",
       "slug": "flydubai-cockpit-attack-smit-machchhar-to-receive-israel-highest-civilian-bravery-award-1870498",
       "link": "https://news.abplive.com/news/world/flydubai-cockpit-attack-smit-machchhar-to-receive-israel-highest-civilian-bravery-award-1870498",
       "image": "https://feeds.abplive.com/imagebank/default_9x16.png",
@@ -1286,7 +1281,7 @@
     },
     {
       "id": "art-14",
-      "title": "WorldHouthi Missile Attacks On Riyadh Damage Kindergarten, Medical Complex In Saudi Arabia",
+      "title": "Houthi Missile Attacks On Riyadh Damage Kindergarten, Medical Complex In Saudi Arabia",
       "slug": "saudi-houthi-conflict-houthi-missile-attacks-on-riyadh-damage-kindergarten-medical-complex-1870495",
       "link": "https://news.abplive.com/news/world/saudi-houthi-conflict-houthi-missile-attacks-on-riyadh-damage-kindergarten-medical-complex-1870495",
       "image": "https://cdn.abplive.com/images/weather/powerdby_logo.png",
@@ -1305,7 +1300,7 @@
     },
     {
       "id": "art-15",
-      "title": "WorldIndia-Cote d’Ivoire partnership anchored in mutual respect: Jaishankar",
+      "title": "India-Cote d’Ivoire partnership anchored in mutual respect: Jaishankar",
       "slug": "india-cote-d-ivoire-partnership-anchored-in-mutual-respect-jaishankar-1870493",
       "link": "https://news.abplive.com/news/world/india-cote-d-ivoire-partnership-anchored-in-mutual-respect-jaishankar-1870493",
       "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2025/05/04/baa3c4bb9c7d9c63868779a3bbdf626b174634122863731_original.png",
@@ -2217,7 +2212,7 @@
     },
     {
       "id": "art-63",
-      "title": "SportsWATCH: Gunfire Erupts During Live Football Interview, Players Flee, 3 Teens Hospitalised",
+      "title": "WATCH: Gunfire Erupts During Live Football Interview, Players Flee, 3 Teens Hospitalised",
       "slug": "gunfire-erupts-during-live-football-interview-players-flee-3-teens-hospitalised-watch-video-1870496",
       "link": "https://news.abplive.com/sports/gunfire-erupts-during-live-football-interview-players-flee-3-teens-hospitalised-watch-video-1870496",
       "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2024/06/01/30bb4f4955010c9438f31b57158d7f201717260535589616_original.png",
@@ -2578,7 +2573,7 @@
     },
     {
       "id": "art-82",
-      "title": "BusinessPorsche Is Cutting 9,000 Jobs: Why The Luxury Carmaker Is Changing Course",
+      "title": "Porsche Is Cutting 9,000 Jobs: Why The Luxury Carmaker Is Changing Course",
       "slug": "porsche-layoffs-automaker-cuts-9000-jobs-by-2030-china-ev-strategy-1870368",
       "link": "https://news.abplive.com/business/porsche-layoffs-automaker-cuts-9000-jobs-by-2030-china-ev-strategy-1870368",
       "image": "https://cdn.abplive.com/imagebank/app-add-2026/App_Download_Banner_Metrotimes_BG.png",
@@ -2749,7 +2744,7 @@
     },
     {
       "id": "art-91",
-      "title": "ElectionBypoll Results 2026 Live: BJP Leads In Bengal’s Nandigram, Rejinagar; TVK Ahead In TN",
+      "title": "Bypoll Results 2026 Live: BJP Leads In Bengal’s Nandigram, Rejinagar; TVK Ahead In TN",
       "slug": "by-election-results-2026-live-updates-bypolls-west-bengal-nandigram-rejinagar-tamil-nadu-assembly-results-winners-1870507",
       "link": "https://news.abplive.com/elections/by-election-results-2026-live-updates-bypolls-west-bengal-nandigram-rejinagar-tamil-nadu-assembly-results-winners-1870507",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -2977,7 +2972,7 @@
     },
     {
       "id": "art-103",
-      "title": "IndiaExclusive: Akhilesh Jumps Barricades, Leads Opposition March To EC Amid Vote Looting Allegations",
+      "title": "Exclusive: Akhilesh Jumps Barricades, Leads Opposition March To EC Amid Vote Looting Allegations",
       "slug": "india-exclusive-akhilesh-jumps-barricades-leads-opposition-march-to-ec-amid-vote-looting-allegations-1794021",
       "link": "https://news.abplive.com/videos/news/india-exclusive-akhilesh-jumps-barricades-leads-opposition-march-to-ec-amid-vote-looting-allegations-1794021",
       "image": "https://cdn.abplive.com/images/weather/powerdby_logo.png",
@@ -2996,7 +2991,7 @@
     },
     {
       "id": "art-104",
-      "title": "IndiaIndian Airspace Used By US During Op Midnight Hammer Against Iran? PIB Fact Checks Viral Claim",
+      "title": "Indian Airspace Used By US During Op Midnight Hammer Against Iran? PIB Fact Checks Viral Claim",
       "slug": "indian-air-space-used-by-us-during-op-midnight-hammer-against-iran-pib-fact-checks-viral-claim-1782239",
       "link": "https://news.abplive.com/news/india/indian-air-space-used-by-us-during-op-midnight-hammer-against-iran-pib-fact-checks-viral-claim-1782239",
       "image": "https://feeds.abplive.com/imagebank/default-flag.svg",
@@ -4079,7 +4074,7 @@
     },
     {
       "id": "art-161",
-      "title": "ElectionHow Will BJP Make Inroads Into SP Strongholds? Plan To Be Drawn Up With RSS Support Under New Strategy",
+      "title": "How Will BJP Make Inroads Into SP Strongholds? Plan To Be Drawn Up With RSS Support Under New Strategy",
       "slug": "how-will-bjp-make-inroads-into-sp-strongholds-plan-to-be-drawn-up-with-rss-support-under-new-strategy-1870378",
       "link": "https://news.abplive.com/elections/how-will-bjp-make-inroads-into-sp-strongholds-plan-to-be-drawn-up-with-rss-support-under-new-strategy-1870378",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -4098,7 +4093,7 @@
     },
     {
       "id": "art-162",
-      "title": "ElectionBengal Bypolls See Brisk Voting In Nandigram, Rejinagar; Kabir Detention Adds Heat",
+      "title": "Bengal Bypolls See Brisk Voting In Nandigram, Rejinagar; Kabir Detention Adds Heat",
       "slug": "west-bengal-bypolls-see-brisk-voting-in-nandigram-rejinagar-byelection-cross-55-voter-turnout-kabir-detained-1870046",
       "link": "https://news.abplive.com/elections/west-bengal-bypolls-see-brisk-voting-in-nandigram-rejinagar-byelection-cross-55-voter-turnout-kabir-detained-1870046",
       "image": "https://feeds.abplive.com/imagebank/default_9x16.png",
@@ -4117,7 +4112,7 @@
     },
     {
       "id": "art-163",
-      "title": "ElectionTamil Nadu Bypolls: Dharapuram Leads Madurantakam With 37.28% Turnout, Voting Peaceful",
+      "title": "Tamil Nadu Bypolls: Dharapuram Leads Madurantakam With 37.28% Turnout, Voting Peaceful",
       "slug": "tamil-nadu-bypolls-dharapuram-leads-madurantakam-with-37-28-turnout-voting-peaceful-tvk-dmk-1870034",
       "link": "https://news.abplive.com/elections/tamil-nadu-bypolls-dharapuram-leads-madurantakam-with-37-28-turnout-voting-peaceful-tvk-dmk-1870034",
       "image": "https://cdn.abplive.com/images/weather/powerdby_logo.png",
@@ -4136,7 +4131,7 @@
     },
     {
       "id": "art-164",
-      "title": "ElectionTMC Vs BJP In Nandigram, Rejinagar As Bypolls Kickoff; Voting Underway In Assam, TN",
+      "title": "TMC Vs BJP In Nandigram, Rejinagar As Bypolls Kickoff; Voting Underway In Assam, TN",
       "slug": "west-bengal-bypolls-voting-underway-nandigram-rejinagar-amid-tight-security-bjp-governance-minority-vote-in-focus-1869933",
       "link": "https://news.abplive.com/elections/west-bengal-bypolls-voting-underway-nandigram-rejinagar-amid-tight-security-bjp-governance-minority-vote-in-focus-1869933",
       "image": "https://feeds.abplive.com/imagebank/default-flag.svg",
@@ -4269,7 +4264,7 @@
     },
     {
       "id": "art-171",
-      "title": "WorldIs The UK To Be Partitioned? Wales, Scotland, Northern Ireland Send ‘Independence’ Warning",
+      "title": "Is The UK To Be Partitioned? Wales, Scotland, Northern Ireland Send ‘Independence’ Warning",
       "slug": "uk-independence-breaking-wales-scotland-northern-ireland-partitioned-just-sent-westminster-a-warning-1866819",
       "link": "https://news.abplive.com/news/world/uk-independence-breaking-wales-scotland-northern-ireland-partitioned-just-sent-westminster-a-warning-1866819",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -4288,7 +4283,7 @@
     },
     {
       "id": "art-172",
-      "title": "IndiaWhy Did Sonam Wangchuk End His 26-Day Hunger Strike? Centre's Assurances Explained",
+      "title": "Why Did Sonam Wangchuk End His 26-Day Hunger Strike? Centre's Assurances Explained",
       "slug": "sonam-wangchuk-ends-hunger-strike-why-26-day-fast-centre-assurances-explained-dipke-cjp-jantar-mantar-1858269",
       "link": "https://news.abplive.com/news/india/sonam-wangchuk-ends-hunger-strike-why-26-day-fast-centre-assurances-explained-dipke-cjp-jantar-mantar-1858269",
       "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2026/01/31/5380a264267bdee5c3ce77a772cd5fa91769798366384616_original.png",
@@ -4307,7 +4302,7 @@
     },
     {
       "id": "art-173",
-      "title": "IndiaFrom Bhagat Singh To Sonam Wangchuk: Hunger Strikes That Changed The Course Of India's History",
+      "title": "From Bhagat Singh To Sonam Wangchuk: Hunger Strikes That Changed The Course Of India's History",
       "slug": "sonam-wangchuk-abhijeet-dipke-hunger-strike-bhagat-singh-gandhi-that-changed-course-of-india-history-1857665",
       "link": "https://news.abplive.com/news/india/sonam-wangchuk-abhijeet-dipke-hunger-strike-bhagat-singh-gandhi-that-changed-course-of-india-history-1857665",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -5048,7 +5043,7 @@
     },
     {
       "id": "art-212",
-      "title": "LifestyleNavratri 2026: Best Garba And Dandiya Nights In Delhi-NCR To Enjoy With Friends And Family",
+      "title": "Navratri 2026: Best Garba And Dandiya Nights In Delhi-NCR To Enjoy With Friends And Family",
       "slug": "navratri-2026-best-garba-and-dandiya-nights-in-delhi-ncr-to-enjoy-with-friends-and-family-1870438",
       "link": "https://news.abplive.com/lifestyle/navratri-2026-best-garba-and-dandiya-nights-in-delhi-ncr-to-enjoy-with-friends-and-family-1870438",
       "image": "https://feeds.abplive.com/imagebank/default-flag.svg",
@@ -5086,7 +5081,7 @@
     },
     {
       "id": "art-214",
-      "title": "LifestyleDelhi’s CR Park To Turn Into ‘Mini Bengal’ As Delhi Tourism Department Announces Special Heritage Walks",
+      "title": "Delhi’s CR Park To Turn Into ‘Mini Bengal’ As Delhi Tourism Department Announces Special Heritage Walks",
       "slug": "delhi-s-cr-park-to-turn-into-mini-bengal-as-delhi-tourism-department-announces-special-heritage-walks-1870444",
       "link": "https://news.abplive.com/lifestyle/delhi-s-cr-park-to-turn-into-mini-bengal-as-delhi-tourism-department-announces-special-heritage-walks-1870444",
       "image": "https://cdn.abplive.com/imagebank/app-add-2026/App_Download_Banner_Metrotimes_BG.png",
@@ -5447,7 +5442,7 @@
     },
     {
       "id": "art-233",
-      "title": "BusinessImmigration, skilled talent mobility distinct: Nasscom as US suspends IT firms from green card prog",
+      "title": "Immigration, skilled talent mobility distinct: Nasscom as US suspends IT firms from green card prog",
       "slug": "immigration-skilled-talent-mobility-distinct-nasscom-as-us-suspends-it-firms-from-green-card-prog-1870489",
       "link": "https://news.abplive.com/business/immigration-skilled-talent-mobility-distinct-nasscom-as-us-suspends-it-firms-from-green-card-prog-1870489",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -5466,7 +5461,7 @@
     },
     {
       "id": "art-234",
-      "title": "BusinessGST Council Makes Major Changes, Scraps Arrest Powers Of Tax Officers",
+      "title": "GST Council Makes Major Changes, Scraps Arrest Powers Of Tax Officers",
       "slug": "gst-council-ends-arrest-powers-hikes-prosecution-threshold-fivefold-to-rs-5-crore-1870454",
       "link": "https://news.abplive.com/business/gst-council-ends-arrest-powers-hikes-prosecution-threshold-fivefold-to-rs-5-crore-1870454",
       "image": "https://feeds.abplive.com/imagebank/default_9x16.png",
@@ -5599,7 +5594,7 @@
     },
     {
       "id": "art-241",
-      "title": "TechnologyPM Modi Pitches 6G, AI, Cybersecurity As Next Digital Frontier: Decoding His India Mobile Congress Address",
+      "title": "PM Modi Pitches 6G, AI, Cybersecurity As Next Digital Frontier: Decoding His India Mobile Congress Address",
       "slug": "india-mobile-congress-2026-pm-modi-5g-6g-ai-cybersecurity-digital-india-1870386",
       "link": "https://news.abplive.com/technology/india-mobile-congress-2026-pm-modi-5g-6g-ai-cybersecurity-digital-india-1870386",
       "image": "https://feeds.abplive.com/imagebank/default_16x9.png",
@@ -5618,7 +5613,7 @@
     },
     {
       "id": "art-242",
-      "title": "LifestyleAmazon Great Indian Festival 2026 Now Live: How To Refresh Your Home Without Overspending",
+      "title": "Amazon Great Indian Festival 2026 Now Live: How To Refresh Your Home Without Overspending",
       "slug": "amazon-sale-live-home-decor-furnishing-deals-2026-1870366",
       "link": "https://news.abplive.com/lifestyle/amazon-sale-live-home-decor-furnishing-deals-2026-1870366",
       "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2026/03/21/8eb5c1655224a34f1d075e1fb6460bbd1774101971164616_original.png",
@@ -5637,7 +5632,7 @@
     },
     {
       "id": "art-243",
-      "title": "BusinessAmazon Layoffs Hit India: Fresh Job Cuts Across Markets Amid Great Indian Festival Sale",
+      "title": "Amazon Layoffs Hit India: Fresh Job Cuts Across Markets Amid Great Indian Festival Sale",
       "slug": "amazon-layoffs-india-great-indian-festival-retail-job-cuts-1870362",
       "link": "https://news.abplive.com/business/amazon-layoffs-india-great-indian-festival-retail-job-cuts-1870362",
       "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2024/06/01/30bb4f4955010c9438f31b57158d7f201717260535589616_original.png",

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Calendar, Filter, Clock, ChevronRight } from 'lucide-react';
-import { Article, Category } from '@/lib/getNewsData';
+import { Article, Category, getArticleUrl } from '@/lib/getNewsData';
 
 interface ArchiveFilterProps {
   categories: Category[];
@@ -124,7 +124,7 @@ export default function ArchiveFilter({ categories, allArticles }: ArchiveFilter
                   <Clock className="w-3 h-3 text-red-500" />
                   <span>{item.time}</span>
                 </span>
-                <Link href={`/article/${item.id}`}>
+                <Link href={getArticleUrl(item)}>
                   <h4 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">
                     {item.title}
                   </h4>
@@ -133,7 +133,7 @@ export default function ArchiveFilter({ categories, allArticles }: ArchiveFilter
 
               <div className="pt-2 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs">
                 <span className="font-semibold text-gray-600 dark:text-gray-400">{item.author}</span>
-                <Link href={`/article/${item.id}`} className="text-red-600 font-bold hover:underline">
+                <Link href={getArticleUrl(item)} className="text-red-600 font-bold hover:underline">
                   Read &rarr;
                 </Link>
               </div>

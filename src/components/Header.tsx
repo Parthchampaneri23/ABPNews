@@ -14,15 +14,15 @@ interface HeaderProps {
   ticker: string[];
   marketTicker: MarketItem[];
   weatherData: WeatherItem[];
-  onOpenLiveTV: () => void;
-  onOpenSearch: () => void;
+  onOpenLiveTV?: () => void;
+  onOpenSearch?: () => void;
   activeCategory?: string;
   onSelectCategory?: (id: string) => void;
 }
 
 import { useRouter, usePathname } from 'next/navigation';
 
-export default function Header({ categories, ticker, marketTicker, weatherData, onOpenLiveTV, onOpenSearch, activeCategory = '', onSelectCategory }: HeaderProps) {
+export default function Header({ categories, ticker, marketTicker, weatherData, onOpenLiveTV = () => {}, onOpenSearch = () => {}, activeCategory = '', onSelectCategory }: HeaderProps) {
   const router = useRouter();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -64,13 +64,14 @@ export default function Header({ categories, ticker, marketTicker, weatherData, 
       {/* 1. TOP UTILITY BAR */}
       <div className="bg-[#051118] text-gray-300 py-1.5 px-4 sm:px-6 flex items-center justify-end text-[11px] font-medium tracking-wide">
         <div className="flex items-center space-x-2">
-          <span>{currentDateTime}</span>
+          <span suppressHydrationWarning>{currentDateTime}</span>
         </div>
       </div>
 
       {/* 2. MAIN NAVBAR */}
-      <div className="bg-white px-4 sm:px-6 py-3 flex items-center justify-between shadow-sm relative">
-        <div className="flex items-center">
+      <div className="bg-white px-4 sm:px-8 py-3 flex items-center justify-between shadow-sm relative">
+        {/* LOGO & MOBILE TOGGLE */}
+        <div className="flex items-center shrink-0">
           {/* Mobile Menu Toggle */}
           <button 
             className="lg:hidden p-1 mr-3 text-gray-700"
@@ -80,32 +81,32 @@ export default function Header({ categories, ticker, marketTicker, weatherData, 
           </button>
 
           {/* LOGO */}
-          <Link href="/" className="shrink-0 flex items-center mr-8">
-            <img src="/logo1.png" alt="Metrotimes" className="h-9 sm:h-16 object-contain" />
+          <Link href="/" className="shrink-0 flex items-center">
+            <img src="/logo1.png" alt="Metrotimes" className="h-9 sm:h-14 object-contain" />
           </Link>
+        </div>
 
-          {/* Desktop Categories */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {categories.map((cat) => {
-              const isActive = pathname === cat.slug;
-              return (
-                <Link
-                  key={cat.id}
-                  href={cat.slug}
-                  className={`text-[13px] font-bold uppercase tracking-wide transition-colors ${isActive ? 'text-[#E30613]' : 'text-[#005187] hover:text-[#E30613]'}`}
-                >
-                  {cat.name}
-                </Link>
-              );
-            })}
-          </div>
+        {/* Desktop Categories - CENTERED & SPACED OUT */}
+        <div className="hidden lg:flex items-center justify-center flex-1 px-8 space-x-8 xl:space-x-12">
+          {categories.map((cat) => {
+            const isActive = pathname === cat.slug;
+            return (
+              <Link
+                key={cat.id}
+                href={cat.slug}
+                className={`text-[13px] font-semibold uppercase tracking-wider transition-colors whitespace-nowrap py-1 ${isActive ? 'text-[#E30613] border-b-2 border-[#E30613]' : 'text-[#005187] hover:text-[#E30613]'}`}
+              >
+                {cat.name}
+              </Link>
+            );
+          })}
         </div>
 
         {/* SEARCH BUTTON */}
-        <div className="flex items-center space-x-3 shrink-0 ml-4">
+        <div className="flex items-center space-x-3 shrink-0">
           <button 
             onClick={onOpenSearch}
-            className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 border border-gray-200 transition-colors"
+            className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-3.5 py-1.5 rounded-full text-xs font-medium text-gray-700 border border-gray-200 transition-colors"
           >
             <Search className="w-4 h-4 text-[#E30613]" />
             <span className="hidden sm:inline">Search...</span>

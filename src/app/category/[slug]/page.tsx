@@ -6,7 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import LiveTVModal from '@/components/LiveTVModal';
 import SearchModal from '@/components/SearchModal';
-import { getNewsData, getArticlesByCategory } from '@/lib/getNewsData';
+import { getNewsData, getArticlesByCategory, getArticleUrl } from '@/lib/getNewsData';
 import { Clock, ChevronRight, Layers } from 'lucide-react';
 
 interface CategoryPageProps {
@@ -87,7 +87,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
  <span>{item.time}</span>
  </span>
 
- <Link href={`/article/${item.id}`}>
+ <Link href={getArticleUrl(item)}>
  <h3 className="text-sm font-bold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">
  {item.title}
  </h3>

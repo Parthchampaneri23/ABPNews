@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Search, X, Clock, ArrowRight } from 'lucide-react';
-import { Article } from '@/lib/getNewsData';
+import { Article, getArticleUrl } from '@/lib/getNewsData';
 
 interface SearchModalProps {
  isOpen: boolean;
@@ -66,7 +66,7 @@ export default function SearchModal({ isOpen, onClose, articles }: SearchModalPr
  filtered.map((item) => (
  <Link 
  key={item.id}
- href={`/article/${item.id}`}
+ href={getArticleUrl(item)}
  onClick={onClose}
  className="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-gray-100 transition-colors group"
  >
