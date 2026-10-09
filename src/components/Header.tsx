@@ -7,11 +7,12 @@ import {
   Pause, Play, Flame, Sun, ArrowUpRight, ArrowDownRight,
   MoreHorizontal
 } from 'lucide-react';
-import { Category, MarketItem, WeatherItem } from '@/lib/getNewsData';
+import { Category, MarketItem, WeatherItem, Article, getArticleUrl } from '@/lib/getNewsData';
 
 interface HeaderProps {
   categories: Category[];
-  ticker: string[];
+  ticker?: string[];
+  tickerArticles?: Article[];
   marketTicker: MarketItem[];
   weatherData: WeatherItem[];
   onOpenLiveTV?: () => void;
@@ -22,12 +23,11 @@ interface HeaderProps {
 
 import { useRouter, usePathname } from 'next/navigation';
 
-export default function Header({ categories, ticker, marketTicker, weatherData, onOpenLiveTV = () => {}, onOpenSearch = () => {}, activeCategory = '', onSelectCategory }: HeaderProps) {
+export default function Header({ categories, ticker = [], tickerArticles = [], marketTicker, weatherData, onOpenLiveTV = () => {}, onOpenSearch = () => {}, activeCategory = '', onSelectCategory }: HeaderProps) {
   const router = useRouter();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState('English');
-  const [tickerPaused, setTickerPaused] = useState(false);
   const [currentDate, setCurrentDate] = useState('');
   const [selectedCityIdx, setSelectedCityIdx] = useState(0);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -57,6 +57,9 @@ export default function Header({ categories, ticker, marketTicker, weatherData, 
   }, []);
 
   const languages = ['English', 'हिंदी', 'मराठी', 'বাংলা', 'ગુજરાતી', 'ਪੰਜਾਬੀ', 'தமிழ்', 'తెలుగు'];
+
+  // Prepare top 5 articles for ticker
+  const displayTickerArticles = tickerArticles.slice(0, 5);
 
   return (
     <header className="w-full bg-white border-b border-gray-200 shadow-sm sticky top-0 z-40 transition-colors">
@@ -114,8 +117,6 @@ export default function Header({ categories, ticker, marketTicker, weatherData, 
         </div>
       </div>
 
-      {/* SUB-NAVBAR HAS BEEN REMOVED */}
-
       {/* 4. BREAKING NEWS TICKER */}
       <div className="bg-gray-100 border-b border-gray-200 text-xs py-2 px-4 flex items-center overflow-hidden">
         <div className="flex items-center space-x-2 shrink-0 bg-[#E30613] text-white px-2.5 py-1 rounded font-extrabold uppercase tracking-wider mr-3 z-10 shadow-sm">
@@ -124,22 +125,15 @@ export default function Header({ categories, ticker, marketTicker, weatherData, 
         </div>
 
         <div className="relative overflow-hidden w-full h-5 flex items-center">
-          <div className={`whitespace-nowrap flex space-x-8 ${tickerPaused ? '' : 'animate-ticker'}`}>
-            {ticker.concat(ticker).map((item, index) => (
-              <span key={index} className="inline-flex items-center text-gray-900 font-semibold">
-                {item}
+          <div className="whitespace-nowrap flex space-x-8 animate-ticker">
+            {(displayTickerArticles.length > 0 ? displayTickerArticles.concat(displayTickerArticles) : []).map((art, index) => (
+              <Link key={`${art.id}-${index}`} href={getArticleUrl(art)} className="inline-flex items-center text-gray-900 font-semibold hover:text-[#E30613] transition-colors">
+                <span>{art.title}</span>
                 <span className="mx-4 text-red-600 font-black">•</span>
-              </span>
+              </Link>
             ))}
           </div>
         </div>
-
-        <button 
-          onClick={() => setTickerPaused(!tickerPaused)}
-          className="shrink-0 ml-2 p-1 text-gray-500 hover:text-gray-900"
-        >
-          {tickerPaused ? <Play className="w-3.5 h-3.5" /> : <Pause className="w-3.5 h-3.5" />}
-        </button>
       </div>
 
       {/* MEGA MENU HAS BEEN REMOVED */}

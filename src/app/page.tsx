@@ -38,6 +38,7 @@ export default function HomePage() {
       <Header
         categories={newsData.categories}
         ticker={newsData.ticker}
+        tickerArticles={newsData.allArticles}
         marketTicker={newsData.marketTicker}
         weatherData={newsData.weatherData}
         onOpenLiveTV={() => setIsLiveTVOpen(true)}
